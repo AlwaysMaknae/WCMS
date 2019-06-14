@@ -34,8 +34,8 @@ CREATE TABLE IF NOT EXISTS `application` (
   `contact` varchar(100) NOT NULL,
   `questionForm` text NOT NULL,
   `logo_fk_upload_id` int(11) NOT NULL,
-  `owner_fk_user_id` varchar(50) NOT NULL,
-  `webmaster_fk_user_id` varchar(100) NOT NULL
+  `owner_fk_user_id` int(11) NOT NULL,
+  `webmaster_fk_user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
