@@ -1,14 +1,38 @@
-<?php include "header.php" ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQ Loader and parser Test</title>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="js/ents.js" ></script>
+  <script src="js/App.js" ></script>
 
-<? if(!empty($_SESSION['admin'])){ ?>
-	<h1>Welcome! This Page Has All The Power!</h1>
-	<img src="https://thumbs.gfycat.com/ColorfulWholeClumber-size_restricted.gif" width="900" alt="Joke">
-	<form action="../core.php" method="POST">
-		<button type="submit" class="btn btn-primary" name="Logout">Logout</button>
-	</form>
-<? }else{ ?>
-	<h1>Error, You Have No Permission!</h1>
-	<img src="https://i.redd.it/xuxkzyemvvd11.png" width="1000" alt="error">
-<? } ?>
+  <style media="screen">
+    #app input{
+      display: inline-block;
+    }
+    #app button{
+    /* float: left; */
+      vertical-align: top;
+    }
 
-<?php include "footer.php" ?>
+  </style>
+
+</head>
+<body>
+  <div class="buttonSelector">
+    <button type="button" class="add" id="p" >Add Paragraph</button>
+    <button type="button" class="add" id="h2">Add Main Title</button>
+    <button type="button" class="add" id="h3">Add Small Title</button>
+    <button type="button" class="add" id="a">Add link</button>
+  </div>
+  <div id="app" ></div>
+
+</body>
+</html>
