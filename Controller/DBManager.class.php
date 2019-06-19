@@ -14,7 +14,7 @@ class DBManager{
 		$host = "localhost";
 		$user = "root";
 		$password = "";
-		$dbname = "herzing";
+		$dbname = "block2_project";
 
 		try{
 			$this->db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);

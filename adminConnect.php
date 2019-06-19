@@ -1,6 +1,6 @@
 <?php
 
-include_once "class\AdminMaganer.class.php";
+include_once "Controller\AdminMaganer.class.php";
 
   $host 	= "127.0.0.1";
   $user 	= "root";

@@ -23,7 +23,8 @@ if(isset($_POST['Login'])){
 		$_SESSION['admin'] = $_POST['username'];
 		header("location: adminCore.php");
 	}else if($userslogin > 0){
-		header("location: index.php?success=userloggedin");
+		$_SESSION['admin'] = $_POST['username'];
+		header("location: adminCore.php");
 	}else{
 		header("location: index.php?error=userpass");
 	}
