@@ -1,11 +1,10 @@
 <?php
 
-
+require_once "Model/PageBean.class.php";
 /**
  *
  */
-class AdminManager extends PDO
-{
+class AdminManager extends PDO {
 
   function __construct( $db, $h, $u, $pw ){
 
@@ -20,10 +19,22 @@ class AdminManager extends PDO
       print "db connect - ERRROR : " . $e->getMessage() . "<br>";
       die();
     }
-
-  }
 }
 
+public function getPages(){
+    $pageQ = $this->query("SELECT `id`, `title` FROM `pages`");
+    $pages = $pageQ->fetchAll( PDO::FETCH_ASSOC );
+    $pp = [];
 
+    foreach( $pages as $p){
+      $pp[] = new PageBean($p);
+    }
+
+
+    return $pp;
+
+  }
+
+}
 
  ?>

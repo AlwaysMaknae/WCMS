@@ -1,10 +1,8 @@
 <?php include "adminHeader.php" ?>
 
 <? if(!empty($_SESSION['admin'])): ?>
-	<h1>Welcome to the Admin pannel!</h1>
-
-	<h2>One day here you'll be able to edit the website's general info.</h2>
-
+	<h1>Welcome! Edit the Pages</h1>
+  <p>This page will let you edit and Add pages</p>
 
 	<nav>
 		<form action="../core.php" method="GET">
@@ -14,6 +12,19 @@
 		<a href="adminCore.php?Pages" class="btn btn-primary"> Edit Pages</a>
 		<a href="adminCore.php?Index" class="btn btn-primary"> Index </a>
 	</nav>
+
+  <div class="container form-group">
+    <select name="Page">
+      <option value="Select Page" disabe selected>Select Page</option>
+      <?php foreach ($Pages as $p): ?>
+        <option value="<?php echo $p->getId() ?>"><?php echo $p->getTitle() ?></option>
+      <?php endforeach; ?>
+    </select>
+  </div>
+
+  <?php
+var_dump( $Pages );
+  ?>
 
 
 

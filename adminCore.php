@@ -1,18 +1,30 @@
 <?php
 session_start();
 
-include_once "adminConnect.php";
+include "adminConnect.php";
+include "Controller/AdminPagesController.class.php";
+include "Controller/AdminIndexController.class.php";
 
-
+	//DBN();
 
 if(isset($_GET['Logout'])) :
 
 	session_destroy();
 	header("location: core.php");
 
-elseif( isset($_GET["Page"]) ) :
+elseif( isset($_GET["Pages"]) ) :
+	new AdminPagesController($Manager);
+	//header( "Location: view/adminPages.view.php");
 
 else :
-	header( "Location: view/adminIndex.view.php");
+	new AdminIndexController($Manager);
+	//header( "Location: view/adminIndex.view.php");
 
 endif;
+
+
+
+function DBN(){
+	var_dump( $_GET );
+	die();
+}

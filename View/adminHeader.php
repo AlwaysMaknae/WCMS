@@ -1,14 +1,5 @@
 <?php
-spl_autoload_register(function ($class_name) {
-	$filename = "Controller/".$class_name . '.class.php';
-
-	if (file_exists($filename))
-		require_once $filename;
-	else
-		require_once str_replace("Controller", "Model", $filename);
-});
-
-session_start();
+	//session_start();
 ?>
 
 <!DOCTYPE html>
