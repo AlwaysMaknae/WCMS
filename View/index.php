@@ -1,16 +1,14 @@
 <?php include "header.php" ?>
-
-	<h1>Login page</h1>
-		<form action="core.php" method="POST">
-			<div class="form-group">
-				<label for="email">Email address:</label>
-				<input type="text" class="form-control" name="username">
-			</div>
-			<div class="form-group">
-				<label for="pwd">Password:</label>
-				<input type="password" class="form-control" name="password">
-			</div>
-			<button type="submit" class="btn btn-primary" name="Login">Login</button>
-		</form>
+<!-- navbar navbar-expand-sm bg-dark -->
+	<h1>Welcome</h1>
+	<div class="content">
+		<ul class="navbar-nav">
+			<?php foreach($navPages as $p): ?>
+				<li class="nav-item">
+					<a class="nav-link" href=../core.php?page=<?= $p->getId(); ?>><?= $p->getTitle(); ?></a>
+				</li>
+			<? endforeach; ?>
+		</ul>
+	</div>
 
 <?php include "footer.php" ?>

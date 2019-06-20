@@ -11,6 +11,7 @@ spl_autoload_register(function ($class_name) {
 //Login and Admin Login
 $admin = "admin";
 $adminpassword = "admin";
+
 if(isset($_POST['Login'])){
 	$users = new UsersBean($_POST);
 	$usersArray = $users->toArray();
@@ -36,8 +37,8 @@ if(isset($_POST['Logout'])){
 
 // Display pages
 if(isset($_GET['page'])){
-	$db = new DBManager();
-	$pagesinfo = $db->getAllPages();
+	$Index = new IndexController( $_GET['page'] );
 
-	
+	//$navPages = $db->getAllPages();
+
 }

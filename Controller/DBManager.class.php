@@ -14,7 +14,7 @@ class DBManager{
 		$host = "localhost";
 		$user = "root";
 		$password = "";
-		$dbname = "herzing";
+		$dbname = "block2_project";
 
 		try{
 			$this->db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
@@ -22,7 +22,9 @@ class DBManager{
 			$this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		}catch(Exception $e){
 			die("Database Connection Error: " . $e->getMessage());
-		}	}
+		}
+	}
+
 	public function getUsersInfo(){
 		$query = $this->db->query("SELECT * FROM users");
 		$usersArray = $query->fetchAll(PDO::FETCH_ASSOC);

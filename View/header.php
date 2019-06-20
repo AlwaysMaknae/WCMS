@@ -1,28 +1,4 @@
-<?php
-spl_autoload_register(function ($class_name) {
-	$filename = "../Controller/".$class_name . '.class.php';
 
-	if (file_exists($filename))
-		require_once $filename;
-	else
-		require_once str_replace("Controller", "Model", $filename);
-});
-
-session_start();
-
-$db = new DBManager();
-$pagesinfo = $db->getAllPages();
-
-
-
-$subtitle = [];
-$title = [];
-foreach ($pagesinfo as $value) {
-	$subtitle[] = $value->getSubtitle();
-	$title[] = $value->getTitle();
-}
-var_dump($title);
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +13,7 @@ var_dump($title);
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<style>
-	
+
 </style>
 </head>
 <body>
@@ -45,12 +21,4 @@ var_dump($title);
 		<!-- A grey horizontal navbar that becomes vertical on small screens -->
 		<nav class="navbar navbar-expand-sm bg-dark">
 			<!-- Links -->
-			<ul class="navbar-nav">
-				<? foreach($subtitle as $key => $subtitle){ ?>
-					<li class="nav-item">
-						<a class="nav-link" href=../core.php?page=<?=$key . ".php" ?>><?=$subtitle; ?></a>
-					</li>
-				<? }; ?>
-			</ul>
-
 		</nav>
