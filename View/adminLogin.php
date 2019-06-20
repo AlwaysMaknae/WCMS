@@ -1,7 +1,7 @@
 <?php include "header.php" ?>
 
 	<h1>Login page</h1>
-		<form action="core.php" method="POST">
+		<form action="../core.php?Login" method="POST">
 			<div class="form-group">
 				<label for="email">Email address:</label>
 				<input type="text" class="form-control" name="username">

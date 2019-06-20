@@ -12,7 +12,7 @@ spl_autoload_register(function ($class_name) {
 $admin = "admin";
 $adminpassword = "admin";
 
-if(isset($_POST['Login'])){
+if(isset($_GET['Login'])){
 	$users = new UsersBean($_POST);
 	$usersArray = $users->toArray();
 	$info = new DBManager();
@@ -22,11 +22,11 @@ if(isset($_POST['Login'])){
 	var_dump($userslogin);
 	if($usersArray['username'] == $admin AND $usersArray['password'] == $adminpassword){
 		$_SESSION['admin'] = $_POST['username'];
-		header("location: view/admin.php");
+		header("location: View/admin.php");
 	}else if($userslogin > 0){
-		header("location: View/index.php?success=loggedin");
+		header("location: View/admin.php");
 	}else{
-		header("location: adminLogin.php?error=userpass");
+		header("location:  View/adminLogin.php?error");
 	}
 }
 

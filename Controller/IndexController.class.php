@@ -2,7 +2,7 @@
 
 class IndexController{
   private $db;
-  public function __construct($pageId = 0){
+  public function __construct($pageId = 1){
 
     $this->db = new DBManager();
     $navPages = $this->db->getAllPages();
