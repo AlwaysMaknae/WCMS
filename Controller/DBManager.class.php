@@ -43,4 +43,20 @@ class DBManager{
 		$count = $query->rowCount();
 		return $count;
 	}
+
+	public function getAllPages(){
+		$query = $this->db->query("SELECT `title`, `subtitle`, `id` FROM pages");
+		$pagesArray = $query->fetchAll(PDO::FETCH_ASSOC);
+		$pagesObj = [];
+
+		foreach($pagesArray as $array){
+			$pagesObj[] = new PageBean($array);
+		}
+
+		return $pagesObj;
+	}
+
+	public function getOnePage(){
+
+	}
 }

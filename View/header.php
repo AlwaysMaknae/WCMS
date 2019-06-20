@@ -1,6 +1,6 @@
 <?php
 spl_autoload_register(function ($class_name) {
-	$filename = "Controller/".$class_name . '.class.php';
+	$filename = "../Controller/".$class_name . '.class.php';
 
 	if (file_exists($filename))
 		require_once $filename;
@@ -9,6 +9,19 @@ spl_autoload_register(function ($class_name) {
 });
 
 session_start();
+
+$db = new DBManager();
+$pagesinfo = $db->getAllPages();
+
+
+
+$subtitle = [];
+$title = [];
+foreach ($pagesinfo as $value) {
+	$subtitle[] = $value->getSubtitle();
+	$title[] = $value->getTitle();
+}
+var_dump($title);
 ?>
 
 <!DOCTYPE html>
@@ -29,3 +42,15 @@ session_start();
 </head>
 <body>
 	<div class="container">
+		<!-- A grey horizontal navbar that becomes vertical on small screens -->
+		<nav class="navbar navbar-expand-sm bg-dark">
+			<!-- Links -->
+			<ul class="navbar-nav">
+				<? foreach($subtitle as $key => $subtitle){ ?>
+					<li class="nav-item">
+						<a class="nav-link" href=../core.php?page=<?=$key . ".php" ?>><?=$subtitle; ?></a>
+					</li>
+				<? }; ?>
+			</ul>
+
+		</nav>

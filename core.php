@@ -1,13 +1,13 @@
 <?php
 session_start();
 spl_autoload_register(function ($class_name) {
-		$filename = "Controller/".$class_name . '.class.php';
+	$filename = "Controller/".$class_name . '.class.php';
 
-		if (file_exists($filename))
-	    	require_once $filename;
-	    else
-	    	require_once str_replace("Controller", "Model", $filename);
-	});
+	if (file_exists($filename))
+		require_once $filename;
+	else
+		require_once str_replace("Controller", "Model", $filename);
+});
 //Login and Admin Login
 $admin = "admin";
 $adminpassword = "admin";
@@ -23,7 +23,7 @@ if(isset($_POST['Login'])){
 		$_SESSION['admin'] = $_POST['username'];
 		header("location: view/admin.php");
 	}else if($userslogin > 0){
-		header("location: index.php?success=userloggedin");
+		header("location: view/mainpage.php?success=loggedin");
 	}else{
 		header("location: index.php?error=userpass");
 	}
@@ -32,4 +32,12 @@ if(isset($_POST['Login'])){
 if(isset($_POST['Logout'])){
 	session_destroy();
 	header("location: index.php");
+}
+
+// Display pages
+if(isset($_GET['page'])){
+	$db = new DBManager();
+	$pagesinfo = $db->getAllPages();
+
+	
 }
