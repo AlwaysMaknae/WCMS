@@ -15,6 +15,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<style>
+	#app button{
+		vertical-align: top;
+	}
+	#app textarea{
+		width: 96%;
+	}
 
 </style>
 </head>

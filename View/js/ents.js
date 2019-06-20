@@ -20,6 +20,11 @@ function Handle(content = "■"){
   Object.assign(this, new Ent("button", content) );
 }
 
+function DeleteHandle(content = "X"){
+  Object.assign(this, new Ent("button", content) );
+  $(this.getElement()).attr("class", "delete");
+}
+
 
 function ParagraphInput(content=""){
   Object.assign(this, new AreaInputEnt("p", content, "Paragraph") );
@@ -50,7 +55,7 @@ function Ent(box, content){
   }
 }
 
-function AreaInputEnt(box, content, placeholder=""){
+function AreaInputEnt(box, content="", placeholder=""){
   this.box = "textarea";
   this.meta = "<textarea "+ box +">";
   this.content = content;
@@ -60,13 +65,14 @@ function AreaInputEnt(box, content, placeholder=""){
       $(b).attr("placeholder", placeholder);
       $(b).attr("class", "targetbox-" + box);
       $(b).attr("value", this.content);
+      $(b).append( this.content );
 
   this.getElement = function(){
     return b;
   }
 }
 
-function InputEnt(box, content, placeholder=""){
+function InputEnt(box, content="", placeholder=""){
   this.box = "input";
   this.meta = "<input type=text>";
   this.content = content;
@@ -77,6 +83,7 @@ function InputEnt(box, content, placeholder=""){
       $(b).attr("class", "targetbox-" + box);
       $(b).attr("placeholder", placeholder);
       $(b).attr("value", this.content);
+      $(b).append( this.content );
 
   this.getElement = function(){
     return b;

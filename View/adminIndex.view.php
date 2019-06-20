@@ -9,10 +9,9 @@
 	<nav>
 		<form action="../core.php" method="GET">
 			<button type="submit" class="btn btn-primary" name="Logout">Logout</button>
+			<a href="adminCore.php?Pages" class="btn btn-primary"> Edit Pages</a>
+			<a href="adminCore.php?Index" class="btn btn-primary"> Index </a>
 		</form>
-
-		<a href="adminCore.php?Pages" class="btn btn-primary"> Edit Pages</a>
-		<a href="adminCore.php?Index" class="btn btn-primary"> Index </a>
 	</nav>
 
 

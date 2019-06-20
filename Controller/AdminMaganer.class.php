@@ -29,12 +29,26 @@ public function getPages(){
     foreach( $pages as $p){
       $pp[] = new PageBean($p);
     }
-
-
     return $pp;
+  }
 
+
+  public function getPage(int $id, $async=false){
+    $pageQ = $this->prepare("SELECT * FROM `pages` WHERE id = :id LIMIT 1");
+    $pageQ->execute( ["id" => $id] );
+    $page = $pageQ->fetch( PDO::FETCH_ASSOC );
+
+    if( $page && $async){
+      $page = json_encode( $page , JSON_UNESCAPED_UNICODE);
+    } else {
+      $page = new PageBean( $page );
+    }
+    return $page;
   }
 
 }
+
+
+
 
  ?>

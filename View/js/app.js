@@ -2,7 +2,6 @@
 var PublicApp;
 $(function(){
  PublicApp = new App();
-
 });
 
 
@@ -11,13 +10,7 @@ function App(App = {contentSelector:"#app", buttonSelector:".add"}){
 
   var Ents = { p:"Paragraph", h2:"MainTitle", h3:"SmallTitle", a:"Paragraph" };
   var EntsI = { p:"ParagraphInput", h2:"MainTitleInput", h3:"SmallTitleInput", a:"ParagraphInput" };
-  this.greet = new MainTitle("Hello");
-  var appPage = new Page( App.contentSelector ,[this.greet]);
-
-  //appPage.add( new SmallTitle("So Schmoll") );
-  appPage.add( new SmallTitleInput("My Titlle is good") );
-  appPage.add( new ParagraphInput() );
-  appPage.add( new MainTitleInput("This one is too") );
+  var appPage = new Page( App.contentSelector ,[]);
 
 
   var Sortable = $( App.contentSelector ).sortable({
@@ -25,16 +18,28 @@ function App(App = {contentSelector:"#app", buttonSelector:".add"}){
   });
   $( App.contentSelector ).disableSelection();
 
-  console.log(Sortable);
-
 
   $( App.buttonSelector ).each(function(e){
-     var newEntity = $(this).attr("id");
+     var newEntity = $(this).attr("name");
      $(this).click( function(){
        var pageEl = new window[ EntsI[newEntity] ]();
        appPage.add( pageEl );
-     })
+     });
   });
+
+
+
+  this.loadStuff = function(data){
+    var pageEl = new window[ EntsI.p ]( data );
+    appPage.add( pageEl );
+
+
+    $( ".delete" ).each(function(e){
+      $(this).click( function(e){
+         $(this).parent().remove();
+      });
+   });
+  }
 
 }
 
@@ -54,7 +59,7 @@ function Page(app, elements = []){
       var wrap = document.createElement( "div" );
       $(wrap).append( new Handle().getElement() );
       $(wrap).append( el.getElement() );
-
+      $(wrap).append( new DeleteHandle().getElement() );
 
       this.app.append( wrap );
   }

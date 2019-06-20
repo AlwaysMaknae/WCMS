@@ -12,5 +12,5 @@
 			</div>
 			<button type="submit" class="btn btn-primary" name="Login">Login</button>
 		</form>
-
+		
 <?php include "footer.php" ?>
