@@ -6,10 +6,10 @@ $(function(){
 
 
 
-function App(App = {contentSelector:"#app", buttonSelector:".add"}){
+function App(App = {contentSelector:"#app", buttonSelector:".add", submitSelector:".submit"}){
 
-  var Ents = { p:"Paragraph", h2:"MainTitle", h3:"SmallTitle", a:"Paragraph" };
-  var EntsI = { p:"ParagraphInput", h2:"MainTitleInput", h3:"SmallTitleInput", a:"ParagraphInput" };
+  var Ents = { p:"Paragraph", h2:"MainTitle", h3:"SmallTitle", a:"Paragraph", hr:"HorizontalRule" };
+  var EntsI = { p:"ParagraphInput", h2:"MainTitleInput", h3:"SmallTitleInput", a:"LinkInput", hr:"HorizontalRule" };
   var appPage = new Page( App.contentSelector ,[]);
 
 
@@ -27,18 +27,20 @@ function App(App = {contentSelector:"#app", buttonSelector:".add"}){
      });
   });
 
+  $( App.submitSelector ).each(function(e){
+    $(this).click( function(){
+     var action = $(this).attr("name");
+     console.log(action);
+    });
+  });
+
 
 
   this.loadStuff = function(data){
+    appPage.empty();
     var pageEl = new window[ EntsI.p ]( data );
     appPage.add( pageEl );
 
-
-    $( ".delete" ).each(function(e){
-      $(this).click( function(e){
-         $(this).parent().remove();
-      });
-   });
   }
 
 }
@@ -58,10 +60,20 @@ function Page(app, elements = []){
       this.elements.push(el);
       var wrap = document.createElement( "div" );
       $(wrap).append( new Handle().getElement() );
+      var deleteBtn = new DeleteHandle().getElement();
+      $(wrap).append( deleteBtn );
       $(wrap).append( el.getElement() );
-      $(wrap).append( new DeleteHandle().getElement() );
+
+      $(deleteBtn).click( function(e){
+           $(this).parent().remove();
+      });
 
       this.app.append( wrap );
+  }
+
+  this.empty = function(){
+    this.elements = [];
+    $( this.app ).empty();
   }
 
 

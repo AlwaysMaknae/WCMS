@@ -1,20 +1,21 @@
 <?php include "adminHeader.php" ?>
 
 <? if(!empty($_SESSION['admin'])): ?>
-	<h1>Welcome! Edit the Pages</h1>
+	<h2>Edit the Pages</h2>
   <p>This page will let you edit and Add pages</p>
 
-	<nav>
-		<form action="../core.php" method="GET">
-			<button type="submit" class="btn btn-danger" name="Logout">Logout</button>
-			<a href="adminCore.php?Pages" class="btn btn-primary"> Edit Pages</a>
-			<a href="adminCore.php?Index" class="btn btn-primary"> Index </a>
-		</form>
-	</nav>
 
-  <div class="container mt-2 form-group">
+	<div class="appSubmits my-4">
+		<button type="button" class="btn btn-primary submit" name="Save"> Save </button>
+		<button type="button" class="btn btn-primary submit" name="Preview"> Preview </button>
+		<button type="button" class="btn btn-primary submit" name="Reset"> Reset </button>
+	</div>
+
+  <div class="mt-2 form-group">
     <select name="Page" class="form-control form-control-lg" id="PagesSelect">
       <option value="Select Page" disabe selected>Select Page To Edit</option>
+
+
 
       <?php foreach ($Pages as $p): ?>
         <option value="<?php echo $p->getId() ?>"><?php echo $p->getTitle() ?></option>
@@ -33,12 +34,15 @@
 
 
 
-	<div class="appButtons">
+	<div class="appButtons my-4">
 		<button type="button" class="btn btn-light add" name="h2"> Add Main Title</button>
 		<button type="button" class="btn btn-light add" name="h3"> Add Small Title </button>
 		<button type="button" class="btn btn-light add" name="p"> Add Paragraph</button>
 		<button type="button" class="btn btn-light add" name="a"> Add link </button>
+		<button type="button" class="btn btn-light add" name="hr"> Add Horizontal Rule </button>
 	</div>
+
+
 
 	<div id="app"></div>
 	<div id="input" style="display:none"></div>

@@ -1,10 +1,10 @@
 
 
-var EntList = ["Paragraph", "Maintitle", "SmallTitle"];
+var EntList = ["Paragraph", "Maintitle", "SmallTitle", "Link"];
 
 
 function Paragraph(content){
-Object.assign(this, new Ent("p", content) );
+  Object.assign(this, new Ent("p", content) );
 }
 
 function MainTitle(content){
@@ -12,11 +12,19 @@ function MainTitle(content){
    Object.assign(this, new Ent("h2", content) );
 }
 
+function HorizontalRule(){
+  var b = document.createElement("hr");
+  this.b = b;
+  this.getElement = function(){
+    return b;
+  }
+}
+
 function SmallTitle(content){
   Object.assign(this, new Ent("h3", content) );
 }
 
-function Handle(content = "■"){
+function Handle(content = "↕"){
   Object.assign(this, new Ent("button", content) );
 }
 
@@ -53,6 +61,24 @@ function Ent(box, content){
   this.getElement = function(){
     return b;
   }
+}
+
+
+
+function LinkInput(content = "", link = ""){
+  //box, content="", placeholder=""
+  var displayText = new InputEnt("a", content, "Display Text").getElement();
+  var link = new InputEnt("href", link, "Link").getElement();
+
+
+  var b = document.createElement( "div" );
+    $(b).attr("class", "targetbox-a");
+    $(b).append( displayText );
+    $(b).append( link );
+  this.getElement = function(){
+    return b;
+  }
+
 }
 
 function AreaInputEnt(box, content="", placeholder=""){

@@ -1,18 +1,8 @@
 <?php include "adminHeader.php" ?>
 
 <? if(!empty($_SESSION['admin'])): ?>
-	<h1>Welcome to the Admin pannel!</h1>
-
-	<h2>One day here you'll be able to edit the website's general info.</h2>
-
-
-	<nav>
-		<form action="../core.php" method="GET">
-			<button type="submit" class="btn btn-primary" name="Logout">Logout</button>
-			<a href="adminCore.php?Pages" class="btn btn-primary"> Edit Pages</a>
-			<a href="adminCore.php?Index" class="btn btn-primary"> Index </a>
-		</form>
-	</nav>
+	<h2>Home</h2>
+	<p>One day here you'll be able to edit the website's general info.</p>
 
 
 
