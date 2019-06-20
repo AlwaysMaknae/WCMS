@@ -5,10 +5,18 @@
 		<ul class="navbar-nav">
 			<?php foreach($navPages as $p): ?>
 				<li class="nav-item">
-					<a class="nav-link" href=../core.php?page=<?= $p->getId(); ?>><?= $p->getTitle(); ?></a>
+					<a class="nav-link" href="core.php?page=<?= $p->getId(); ?>"  ><?= $p->getTitle(); ?></a>
 				</li>
-			<? endforeach; ?>
+			<?php endforeach; ?>
 		</ul>
+	</div>
+	<div class="container">
+		<h2> <?php echo $thePage->getTitle(); ?></h2>
+
+		<?php
+			echo $thePage->getContent();
+		?>
+
 	</div>
 
 <?php include "footer.php" ?>

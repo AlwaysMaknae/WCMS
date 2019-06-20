@@ -24,9 +24,9 @@ if(isset($_POST['Login'])){
 		$_SESSION['admin'] = $_POST['username'];
 		header("location: view/admin.php");
 	}else if($userslogin > 0){
-		header("location: view/mainpage.php?success=loggedin");
+		header("location: View/index.php?success=loggedin");
 	}else{
-		header("location: index.php?error=userpass");
+		header("location: adminLogin.php?error=userpass");
 	}
 }
 
@@ -35,10 +35,11 @@ if(isset($_POST['Logout'])){
 	header("location: index.php");
 }
 
+if( isset($_GET['admin']) ){
+	header("location: View/adminLogin.php");
+}
+
 // Display pages
 if(isset($_GET['page'])){
 	$Index = new IndexController( $_GET['page'] );
-
-	//$navPages = $db->getAllPages();
-
 }

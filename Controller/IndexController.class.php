@@ -6,8 +6,8 @@ class IndexController{
 
     $this->db = new DBManager();
     $navPages = $this->db->getAllPages();
-    //Fetch Page with ID
-    include "../View/index.php";
+    $thePage = $this->db->getOnePage($pageId);
+    include "View/index.php";
 
   }
 }

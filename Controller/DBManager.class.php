@@ -58,7 +58,18 @@ class DBManager{
 		return $pagesObj;
 	}
 
-	public function getOnePage(){
+	public function getOnePage($id){
+
+		$query = $this->db->prepare("SELECT * from pages WHERE id=:id");
+		$query->execute(["id"=>$id]);
+		$thePage = $query->fetch( PDO::FETCH_ASSOC );
+
+		if($thePage){
+			$thePage = new PageBean($thePage);
+		}
+
+		return $thePage;
+
 
 	}
 }
