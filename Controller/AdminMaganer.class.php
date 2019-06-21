@@ -46,6 +46,13 @@ public function getPages(){
     return $page;
   }
 
+  public function updatePageContent($id, $title, $content){
+    $pageU = $this->prepare("UPDATE `pages` SET `title`=:title,`content`=:content WHERE `id`=:id");
+    $pageU->execute( ["id" => $id,
+    "title"=>$title,
+    "content"=>$content] );
+  }
+
 }
 
 

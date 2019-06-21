@@ -44,9 +44,15 @@ function App( App = {
      if(action == "Save"){
        var htmlParsed = appPage.parse();
        $("#input").html(htmlParsed);
+
+       saveAJ({content:htmlParsed,
+         title:$(App.titleSelector).val()
+       });
+
      } else if(action == "Preview"){
        var htmlParsed = appPage.parse();
-       $("#input").html(htmlParsed);
+       var title = "<h2>" + $(App.titleSelector).val() + "</h2>";
+       $("#input").html(title+htmlParsed);
      }
     });
   });
@@ -55,8 +61,22 @@ function App( App = {
 
   this.loadStuff = function(data){
     appPage.empty();
+    var ins = $.parseHTML(data.content, false);
+
+    console.log(ins);
+    var pageEl="";
+      for (var el =0;  el <= ins.length ; el++) {
+        console.log( ins[el] );
+        pageEl = new window[ EntsI.p ]( data.content );
+        appPage.add( pageEl );
+      }
+
     var pageEl = new window[ EntsI.p ]( data.content );
     appPage.add( pageEl );
+
+    $(App.titleSelector).val( data.title );
+    $(App.titleSelector).removeAttr("disabled");
+    $("#input").html(appPage.parse());
   }
 
 }
@@ -111,8 +131,6 @@ function Page(app, elements = []){
         page += "<" +boxi+ ">" + $(this).val() + "</" +boxi+ ">";
       }
     });
-
-    console.log(page);
     return page;
 
 
