@@ -7,10 +7,14 @@ $(function(){
 
       if(data != "false"){
         var content = JSON.parse(data);
-        $( "#input" ).html( content["content"] );
+        //$( "#input" ).html( content["content"] );
       }
 
-      PublicApp.loadStuff( content["content"]  );
+      PublicApp.loadStuff({
+        content: content["content"],
+        title: content["title"]
+
+      });
 
     });
   });

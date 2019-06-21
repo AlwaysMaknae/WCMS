@@ -30,10 +30,6 @@
 	<script src="View/js/AjaxController.js"></script>
 
 
-
-
-
-
 	<div class="appButtons my-4">
 		<button type="button" class="btn btn-light add" name="h2"> Add Main Title</button>
 		<button type="button" class="btn btn-light add" name="h3"> Add Small Title </button>
@@ -44,8 +40,17 @@
 
 
 
+	<div class="row container">
+		<input type="text" name="pageTitle" value=""
+		placeholder="Current Page Title" class="form-control form-control-md">
+		<hr/>
+	</div>
 	<div id="app"></div>
-	<div id="input" style="display:none"></div>
+	<div id="input"
+
+
+
+	></div>
 
 
 

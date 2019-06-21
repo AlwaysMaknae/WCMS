@@ -12,16 +12,16 @@ function MainTitle(content){
    Object.assign(this, new Ent("h2", content) );
 }
 
+function SmallTitle(content){
+  Object.assign(this, new Ent("h3", content) );
+}
+
 function HorizontalRule(){
   var b = document.createElement("hr");
   this.b = b;
   this.getElement = function(){
     return b;
   }
-}
-
-function SmallTitle(content){
-  Object.assign(this, new Ent("h3", content) );
 }
 
 function Handle(content = "↕"){
@@ -45,6 +45,12 @@ function MainTitleInput(content=""){
 
 function SmallTitleInput(content=""){
   Object.assign(this, new InputEnt("h3", content, "Small Title (h3) ") );
+}
+
+function HorizontalRuleInput(content=""){
+  Object.assign(this, new InputEnt("hr", content, "Small Title (h3) ") );
+  $(this.getElement()).attr("disabled" , true);
+  $(this.getElement()).attr("value", "Horizontal Rule");
 }
 
 

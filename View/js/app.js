@@ -1,15 +1,22 @@
 
 var PublicApp;
-$(function(){
- PublicApp = new App();
-});
+
+  $(function(){
+    PublicApp = new App();
+  });
 
 
 
-function App(App = {contentSelector:"#app", buttonSelector:".add", submitSelector:".submit"}){
+function App( App = {
+  contentSelector:"#app",
+  buttonSelector:".add",
+  submitSelector:".submit",
+  titleSelector:"#pageTitle"
+  }){
 
   var Ents = { p:"Paragraph", h2:"MainTitle", h3:"SmallTitle", a:"Paragraph", hr:"HorizontalRule" };
-  var EntsI = { p:"ParagraphInput", h2:"MainTitleInput", h3:"SmallTitleInput", a:"LinkInput", hr:"HorizontalRule" };
+  var EntsI = { p:"ParagraphInput", h2:"MainTitleInput",
+  h3:"SmallTitleInput", a:"LinkInput", hr:"HorizontalRuleInput" };
   var appPage = new Page( App.contentSelector ,[]);
 
 
@@ -19,6 +26,7 @@ function App(App = {contentSelector:"#app", buttonSelector:".add", submitSelecto
   $( App.contentSelector ).disableSelection();
 
 
+// Adding Btns
   $( App.buttonSelector ).each(function(e){
      var newEntity = $(this).attr("name");
      $(this).click( function(){
@@ -27,10 +35,19 @@ function App(App = {contentSelector:"#app", buttonSelector:".add", submitSelecto
      });
   });
 
+
+//Submit buttons
   $( App.submitSelector ).each(function(e){
     $(this).click( function(){
      var action = $(this).attr("name");
-     console.log(action);
+     //console.log(action);
+     if(action == "Save"){
+       var htmlParsed = appPage.parse();
+       $("#input").html(htmlParsed);
+     } else if(action == "Preview"){
+       var htmlParsed = appPage.parse();
+       $("#input").html(htmlParsed);
+     }
     });
   });
 
@@ -38,9 +55,8 @@ function App(App = {contentSelector:"#app", buttonSelector:".add", submitSelecto
 
   this.loadStuff = function(data){
     appPage.empty();
-    var pageEl = new window[ EntsI.p ]( data );
+    var pageEl = new window[ EntsI.p ]( data.content );
     appPage.add( pageEl );
-
   }
 
 }
@@ -74,6 +90,32 @@ function Page(app, elements = []){
   this.empty = function(){
     this.elements = [];
     $( this.app ).empty();
+  }
+
+
+  this.parse = function(){
+    var input = $(app + " input, " + app + " textarea");
+    var page = "";
+
+    var ei = "";
+    var boxi = "";
+    input.each(function(e){
+      boxi = $(this).attr("class").split("-")[1];
+      if( boxi == "hr"){
+        page += "<" +boxi+ " />";
+      } else if (boxi == "a") {
+        page += "<" +boxi+ " href='" +$(this).next().val() + "' target='_blank' >" + $(this).val() + "</" +boxi+ ">";
+      } else if( boxi == "href"){
+        // nothing ? lel
+      } else {
+        page += "<" +boxi+ ">" + $(this).val() + "</" +boxi+ ">";
+      }
+    });
+
+    console.log(page);
+    return page;
+
+
   }
 
 
