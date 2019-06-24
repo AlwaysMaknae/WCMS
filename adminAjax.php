@@ -23,7 +23,6 @@ if( isset($_GET["Page"]) && $_GET["Page"] != "Select Page" ):
 
 
 
-
 else:
   echo "false";
 endif;

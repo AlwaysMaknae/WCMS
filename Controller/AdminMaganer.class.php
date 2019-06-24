@@ -33,7 +33,7 @@ public function getPages(){
   }
 
 
-  public function getPage(int $id, $async=false){
+  public function getPage($id, $async=false){
     $pageQ = $this->prepare("SELECT * FROM `pages` WHERE id = :id LIMIT 1");
     $pageQ->execute( ["id" => $id] );
     $page = $pageQ->fetch( PDO::FETCH_ASSOC );

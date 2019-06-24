@@ -6,15 +6,15 @@ $(function(){
 
       if(data != "false"){
         var content = JSON.parse(data);
-        //$( "#input" ).html( content["content"] );
+        //$( "#debug" ).append( data );
+        //console.log(data);
+        PublicApp.loadStuff({
+          content: content["content"],
+          title: content["title"]
+        });
       }
-      PublicApp.loadStuff({
-        content: content["content"],
-        title: content["title"]
-      });
     });
   });
-
 
 
 });

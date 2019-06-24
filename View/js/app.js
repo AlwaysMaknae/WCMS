@@ -60,20 +60,28 @@ function App( App = {
 
 
   this.loadStuff = function(data){
+
     appPage.empty();
     var ins = $.parseHTML(data.content, false);
 
-    console.log(ins);
     var pageEl="";
+    var tag = "";
+    var link = "";
+
       for (var el =0;  el <= ins.length ; el++) {
-        console.log( ins[el] );
-        pageEl = new window[ EntsI.p ]( data.content );
-        appPage.add( pageEl );
+        pageEl = $(ins[el])[0];
+
+        if( pageEl != undefined ){
+          tag = EntsI[ pageEl.tagName.toLowerCase() ];
+
+          if( $(pageEl).attr("href") ){
+            link = $(pageEl).attr("href");
+          }
+
+          pageEl = new window[ tag ]( pageEl.innerHTML, link );
+          appPage.add( pageEl );
+        }
       }
-
-    var pageEl = new window[ EntsI.p ]( data.content );
-    appPage.add( pageEl );
-
     $(App.titleSelector).val( data.title );
     $(App.titleSelector).removeAttr("disabled");
     $("#input").html(appPage.parse());
