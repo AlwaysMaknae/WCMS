@@ -28,12 +28,12 @@ elseif ( isset($_GET["Upload"] ) ):
         "file"=> $file["file"]
     ]);
 
-    $Manager->addUpload( $upload );
-
+    $result = $Manager->addUpload( $upload );
+    $boo = $upload->getJSON();
+    return true;
   } else {
-
+    return false;
   }
-  //addUpload
 
 
 

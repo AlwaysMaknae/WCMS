@@ -69,11 +69,12 @@ public function getPages(){
 
   public function addUpload(UploadBean $up){
     $uploadI = $this->prepare("INSERT INTO `uploads`(`id`, `file`, `title`, `alt`) VALUES (DEFAULT,:file,:title,:alt)" );
-    $uploadI->execute([
+    $result = $uploadI->execute([
       "file" => $up->getFile(false),
       "title"=>$up->getTitle(),
       "alt"=>$up->getAlt()
     ]);
+    return $result;
   }
 
 }

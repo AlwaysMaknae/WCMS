@@ -30,6 +30,20 @@ class UploadBean{
     self::$directory = $directory;
   }
 
+  public function getJSON(){
+    //return json_encode( $this->toArray() );
+    return $this->toArray();
+  }
+
+  protected function toArray(){
+    $props = [
+      "file" => $this->getFile(false),
+      "title" => $this->getTitle(),
+      "alt" => $this->getAlt()
+    ];
+     return $props;
+  }
+
     /**
      * Get the value of Id
      * @return mixed

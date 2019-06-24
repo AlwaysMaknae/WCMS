@@ -3,13 +3,10 @@
 <? if(!empty($_SESSION['admin'])): ?>
   <script src="View/js/uploads.js"></script>
   <script src="View/js/AjaxController.js"></script>
-	<h2>Edit the Pages</h2>
-  <p>This page will let you edit and Add pages</p>
+	<h2>Manage Uploads</h2>
+  <p>Here you can upload stuff</p>
 
 	<div id="debug" ></div>
-  <div class="row">
-    <h1>Welcome to Manage Uploads, hey we got there</h1>
-  </div>
 
   <form id="UploadForm" class="form-group" method="post" enctype="multipart/form-data">
     <input class="form-control-sm" type="text" name="title" value="" placeholder="Title">
@@ -34,7 +31,9 @@
           <div class="card-body">
             <p class="font-bold"><? echo $img->getId(); ?> : <? echo $img->getTitle(); ?> </p>
             <p class="font-italic"><? echo $img->getAlt(); ?> </p>
+            <?php /* ?>
             <a href="adminCore.php?Uploads" class="btn btn-primary" id="upload-<? echo $img->getId(); ?>2"> Edit </a>
+            <? */ ?>
           </div>
         </div>
       <?php endforeach; ?>

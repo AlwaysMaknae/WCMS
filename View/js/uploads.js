@@ -34,8 +34,7 @@ var PublicApp;
             cache: false,
             processData: false,
             success:function(data){
-              $(App.OutputSelector).append( data );
-              console.log(data);
+              console.log( data );
             }
           });
         } else {
@@ -44,7 +43,6 @@ var PublicApp;
 
 
         var fData = new FormData(this);
-        console.log(fData);
       });
 
 
