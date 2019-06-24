@@ -28,3 +28,7 @@ function saveAJ(Content = {
     $("#input").html(data);
   });
 }
+
+function uploadAJ( Content = {} ){
+  console.log(Content);
+}

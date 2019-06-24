@@ -1,6 +1,10 @@
 <?php include "adminHeader.php" ?>
 
 <? if(!empty($_SESSION['admin'])): ?>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="View/js/ents.js"></script>
+<script src="View/js/app.js"></script>
+<script src="View/js/AjaxController.js"></script>
 	<h2>Edit the Pages</h2>
   <p>This page will let you edit and Add pages</p>
 
@@ -26,10 +30,7 @@
     </select>
   </div>
 
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="View/js/ents.js"></script>
-	<script src="View/js/app.js"></script>
-	<script src="View/js/AjaxController.js"></script>
+
 
 
 	<div class="appButtons my-4">

@@ -1,6 +1,7 @@
 <?php
 
 require_once "Model/PageBean.class.php";
+require_once "Model/UploadBean.class.php";
 /**
  *
  */
@@ -51,6 +52,28 @@ public function getPages(){
     $pageU->execute( ["id" => $id,
     "title"=>$title,
     "content"=>$content] );
+  }
+
+
+
+  public function getUploads(){
+    $pageQ = $this->query("SELECT * FROM `uploads`");
+    $pages = $pageQ->fetchAll( PDO::FETCH_ASSOC );
+    $pp = [];
+
+    foreach( $pages as $p){
+      $pp[] = new UploadBean($p);
+    }
+    return $pp;
+  }
+
+  public function addUpload(UploadBean $up){
+    $uploadI = $this->prepare("INSERT INTO `uploads`(`id`, `file`, `title`, `alt`) VALUES (DEFAULT,:file,:title,:alt)" );
+    $uploadI->execute([
+      "file" => $up->getFile(false),
+      "title"=>$up->getTitle(),
+      "alt"=>$up->getAlt()
+    ]);
   }
 
 }

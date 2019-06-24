@@ -39,6 +39,7 @@
 			<h1>Welcome to the Admin pannel!</h1>
 		<nav class="mb-2">
 				<a href="core.php?Logout" class="btn btn-danger">Logout</a>
-				<a href="adminCore.php?Pages" class="btn btn-primary"> Edit Pages</a>
 				<a href="adminCore.php?Index" class="btn btn-primary"> Index </a>
+				<a href="adminCore.php?Pages" class="btn btn-primary"> Edit Pages</a>
+				<a href="adminCore.php?Uploads" class="btn btn-primary"> Manage Uploads </a>
 		</nav>
