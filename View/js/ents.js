@@ -34,6 +34,7 @@ function DeleteHandle(content = "X"){
 }
 
 
+
 function ParagraphInput(content=""){
   Object.assign(this, new AreaInputEnt("p", content, "Paragraph") );
 }
@@ -54,22 +55,20 @@ function HorizontalRuleInput(content=""){
 }
 
 
-function Ent(box, content){
-  this.box = box;
-  this.meta = "<"+ box +">";
-  this.content = content;
-  this.closingMeta = "</" +box +">";
+function ImageInput(src = "", alt = ""){
+  //box, content="", placeholder=""
+  var box = document.createElement( "img" );
+  $(box).attr("src", src);
+  $(box).attr("alt", alt);
 
-  var b = document.createElement( this.box );
-  var bt = document.createTextNode( this.content );
-  b.appendChild( bt );
 
+  var b = document.createElement( "div" );
+    $(b).attr("class", "targetbox-img");
+    $(b).append( box );
   this.getElement = function(){
     return b;
   }
 }
-
-
 
 function LinkInput(content = "", link = ""){
   //box, content="", placeholder=""
@@ -84,7 +83,21 @@ function LinkInput(content = "", link = ""){
   this.getElement = function(){
     return b;
   }
+}
 
+function Ent(box, content){
+  this.box = box;
+  this.meta = "<"+ box +">";
+  this.content = content;
+  this.closingMeta = "</" +box +">";
+
+  var b = document.createElement( this.box );
+  var bt = document.createTextNode( this.content );
+  b.appendChild( bt );
+
+  this.getElement = function(){
+    return b;
+  }
 }
 
 function AreaInputEnt(box, content="", placeholder=""){

@@ -39,6 +39,17 @@
 		<button type="button" class="btn btn-light add" name="p"> Add Paragraph</button>
 		<button type="button" class="btn btn-light add" name="a"> Add link </button>
 		<button type="button" class="btn btn-light add" name="hr"> Add Horizontal Rule </button>
+		<div class="mt-2">
+		<label> Select a picture to add it to the page</label>
+		<select class="form-control-sm" name="img">
+			<?php foreach($Uploads as $pik): ?>
+				<option value="<? echo $pik->getFile();?>"> <?php echo $pik->getId() ." : " . $pik->getTitle() ." - ". $pik->getAlt() ?> </option>
+			<?php endforeach; ?>
+		</select>
+	</div>
+
+
+
 	</div>
 
 
