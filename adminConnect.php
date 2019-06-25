@@ -6,6 +6,7 @@ include_once "Controller\AdminMaganer.class.php";
   $user 	= "root";
   $pass 	= "";
   $dbname = "block2_project";
+  $Manager = null;
 
   try{
     $Manager  = new AdminManager($dbname,$host,$user,$pass);

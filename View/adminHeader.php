@@ -1,14 +1,5 @@
 <?php
-spl_autoload_register(function ($class_name) {
-	$filename = "Controller/".$class_name . '.class.php';
-
-	if (file_exists($filename))
-		require_once $filename;
-	else
-		require_once str_replace("Controller", "Model", $filename);
-});
-
-session_start();
+	//session_start();
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +16,30 @@ session_start();
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<style>
 
+	#app button{
+		vertical-align: top;
+	}
+	#app input{
+		width: 100%;
+	}
+	#app textarea{
+		width: 100%;
+		resize: vertical;
+		min-height: 200px;
+	}
+
+	#app div{
+		margin-bottom: 20px;
+	}
+
 </style>
 </head>
 <body>
 	<div class="container">
+			<h1>Welcome to the Admin pannel!</h1>
+		<nav class="mb-2">
+				<a href="core.php?Logout" class="btn btn-danger">Logout</a>
+				<a href="adminCore.php?Index" class="btn btn-primary"> Index </a>
+				<a href="adminCore.php?Pages" class="btn btn-primary"> Edit Pages</a>
+				<a href="adminCore.php?Uploads" class="btn btn-primary"> Manage Uploads </a>
+		</nav>
