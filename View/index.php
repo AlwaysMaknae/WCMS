@@ -2,10 +2,11 @@
 <?php
 $DBManager = new DBManager();
 $application = $DBManager->getApplication();
+$logo = $DBManager->getLogo();
 ?>
 <!-- navbar -->
 <?=$application['title'] ?>
-<?=$application['logo'] ?>
+<img src="uploads/	<?=$logo['file'] ?>">
 <div class="content">
 	<ul class="navbar-nav navbar-expand bg-dark">
 		<?php foreach($navPages as $p): ?>

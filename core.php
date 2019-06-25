@@ -8,6 +8,7 @@ spl_autoload_register(function ($class_name) {
 	else
 		require_once str_replace("Controller", "Model", $filename);
 });
+
 //Login and Admin Login
 $admin = "admin";
 $adminpassword = "admin";

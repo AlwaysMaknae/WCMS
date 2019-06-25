@@ -71,7 +71,7 @@ class DBManager{
 	}
 
 	public function getApplication(){
-		$query = $this->db->query("SELECT `smallcontact`, `title`, `logo` FROM application");
+		$query = $this->db->query("SELECT `smallcontact`, `title`, `logo_fk` FROM application");
 		$contactform = $query->fetch(PDO::FETCH_ASSOC);
 
 		return $contactform;
@@ -80,11 +80,15 @@ class DBManager{
 	public function getLogo(){
 		$query = $this->db->query("SELECT `logo_fk` from application ");
 		$getlogokey = $query->fetch(PDO::FETCH_ASSOC);
-		
-		$logoQ = ("SELECT * FROM uploads WHERE id=:id");
-		$logoQ = execute(array($getlogokey));
+		var_dump($getlogokey);
 
-		return $logoQ;
+		$logoQ = $this->db->prepare("SELECT * FROM uploads WHERE id=:id");
+		$logoQ->execute(array("id"=>$getlogokey["logo_fk"]));
+		$logo = $logoQ->fetch(PDO::FETCH_ASSOC);
+		var_dump($logo);
+
+		return $logo;
+		die();
 		
 	}
 
