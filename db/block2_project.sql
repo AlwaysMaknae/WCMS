@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 12, 2019 at 04:28 PM
+-- Generation Time: Jun 13, 2019 at 03:41 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -31,9 +31,11 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `application`;
 CREATE TABLE IF NOT EXISTS `application` (
   `title` varchar(50) NOT NULL,
-  `owner` varchar(50) NOT NULL,
   `contact` varchar(100) NOT NULL,
-  `webmaster` varchar(100) NOT NULL
+  `questionForm` text NOT NULL,
+  `logo_fk_upload_id` int(11) NOT NULL,
+  `owner_fk_user_id` int(11) NOT NULL,
+  `webmaster_fk_user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -46,9 +48,8 @@ DROP TABLE IF EXISTS `pages`;
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
+  `subttitle` varchar(50) NOT NULL,
   `content` longtext NOT NULL,
-  `fk_upload` int(11) NOT NULL,
-  `fk_user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -64,6 +65,7 @@ CREATE TABLE IF NOT EXISTS `uploads` (
   `file` varchar(100) NOT NULL,
   `title` varchar(50) NOT NULL,
   `alt` varchar(50) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -80,8 +82,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(50) NOT NULL,
   `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
-  `fk_upload` int(11) NOT NULL,
+  `fk_upload_id` int(11) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0',
+  `email` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 COMMIT;
