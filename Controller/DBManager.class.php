@@ -76,4 +76,24 @@ class DBManager{
 
 		return $contactform;
 	}
+
+	public function getLogo(){
+		$query = $this->db->query("SELECT `logo_fk` from application ");
+		$getlogokey = $query->fetch(PDO::FETCH_ASSOC);
+		
+		$logoQ = ("SELECT * FROM uploads WHERE id=:id");
+		$logoQ = execute(array($getlogokey));
+
+		return $logoQ;
+		
+	}
+
+	// public function getOwner(){
+	// 	$query = $this->db->query("SELECT `owner_fk` FROM application ");
+	// 	$getownerkey = $query->fetch(PDO::FETCH_ASSOC);
+
+	// 	$ownerQ = ("SELECT * FROM users WHERE id=:id");
+	// 	$ownerQ->execute(array($id, $username));
+	// 	$getownerkey 
+	// }
 }
