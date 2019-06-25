@@ -1,16 +1,3 @@
-<?php
-spl_autoload_register(function ($class_name) {
-	$filename = "Controller/".$class_name . '.class.php';
-
-	if (file_exists($filename))
-		require_once $filename;
-	else
-		require_once str_replace("Controller", "Model", $filename);
-});
-
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,3 +16,7 @@ session_start();
 </head>
 <body>
 	<div class="container">
+		<!-- A grey horizontal navbar that becomes vertical on small screens -->
+		<nav class="navbar navbar-expand-sm bg-dark">
+			<!-- Links -->
+		</nav>

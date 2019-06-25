@@ -1,1 +1,5 @@
-<?php include "View/index.php" ?>
+<?php
+header("Location: core.php?page=1");
+
+
+ ?>

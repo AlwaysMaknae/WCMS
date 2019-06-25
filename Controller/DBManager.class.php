@@ -22,7 +22,9 @@ class DBManager{
 			$this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		}catch(Exception $e){
 			die("Database Connection Error: " . $e->getMessage());
-		}	}
+		}
+	}
+
 	public function getUsersInfo(){
 		$query = $this->db->query("SELECT * FROM users");
 		$usersArray = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -42,5 +44,32 @@ class DBManager{
 
 		$count = $query->rowCount();
 		return $count;
+	}
+
+	public function getAllPages(){
+		$query = $this->db->query("SELECT `title`, `subtitle`, `id` FROM pages");
+		$pagesArray = $query->fetchAll(PDO::FETCH_ASSOC);
+		$pagesObj = [];
+
+		foreach($pagesArray as $array){
+			$pagesObj[] = new PageBean($array);
+		}
+
+		return $pagesObj;
+	}
+
+	public function getOnePage($id){
+
+		$query = $this->db->prepare("SELECT * from pages WHERE id=:id");
+		$query->execute(["id"=>$id]);
+		$thePage = $query->fetch( PDO::FETCH_ASSOC );
+
+		if($thePage){
+			$thePage = new PageBean($thePage);
+		}
+
+		return $thePage;
+
+
 	}
 }
