@@ -71,6 +71,32 @@ if(isset($_POST['FormSubmit'])){
 
 	';
 
-	var_dump(mail($to, $subject, $msg, $headers));
+	mail($to, $subject, $msg, $headers);
+
+	$to2 = "jose.19315@gmail.com";
+	$subject2 = $_POST['name'] . " has contacted you, admin admin!";
+	$id2 = "Admin";
+	$content2 = $_POST['comment'];
+
+	$headers2 = array(
+		'From' 			=> 'jose.19315@hotmail.com',
+		'Reply-To' 		=> 'jose.19315@hotmail.com',
+		'X-Mailer'		=> 'PHP/' . phpversion(),
+		'MIME-Version' 	=> '1.0',
+		'Content-type' 	=>  'text/html; charset=utf-8'
+	);
+
+	$msg2 = '
+	<!DOCTYPE html>
+	<html>
+	<body>
+	<h1>Hi, ' . $id2 . '</h1>
+	<p>' . $id . ' said: ' . $content2 . '</p>
+	<p>---<br>Jose W.</p>
+	</body>
+	</html>
+
+	';
+	mail($to2, $subject2, $msg2, $headers2);
 	header("location: View/mail.php");
 }
