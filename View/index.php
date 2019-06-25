@@ -4,8 +4,8 @@ $DBManager = new DBManager();
 $application = $DBManager->getApplication();
 ?>
 <!-- navbar -->
-<?=$application['title'] ?>
-<?=$application['logo'] ?>
+<h1>	<?=$application['title'] ?> </h1>
+<?=$application['logo_fk'] ?>
 <div class="content">
 	<ul class="navbar-nav navbar-expand bg-dark">
 		<?php foreach($navPages as $p): ?>
