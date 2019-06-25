@@ -59,7 +59,6 @@ class DBManager{
 	}
 
 	public function getOnePage($id){
-
 		$query = $this->db->prepare("SELECT * from pages WHERE id=:id");
 		$query->execute(["id"=>$id]);
 		$thePage = $query->fetch( PDO::FETCH_ASSOC );
@@ -69,7 +68,12 @@ class DBManager{
 		}
 
 		return $thePage;
+	}
 
+	public function getApplication(){
+		$query = $this->db->query("SELECT `smallcontact`, `title`, `logo` FROM application");
+		$contactform = $query->fetch(PDO::FETCH_ASSOC);
 
+		return $contactform;
 	}
 }
