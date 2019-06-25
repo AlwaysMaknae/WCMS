@@ -1,5 +1,5 @@
 		<hr>
-		<h3>Footer</h3>
+		<p>Footer</p>
 	</div>
 
 </body>

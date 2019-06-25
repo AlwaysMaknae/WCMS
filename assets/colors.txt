@@ -1,0 +1,2 @@
+LightBlue : #254691
+DarkBlue : #040f23

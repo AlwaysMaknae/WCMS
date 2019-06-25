@@ -22,18 +22,21 @@ if(isset($_GET['Login'])){
 	var_dump($userslogin);
 	if($usersArray['username'] == $admin AND $usersArray['password'] == $adminpassword){
 		$_SESSION['admin'] = $_POST['username'];
-		header("location: View/admin.php");
+		header("location: adminCore.php");
 	}else if($userslogin > 0){
-		header("location: View/admin.php");
+		$_SESSION['admin'] = $_POST['username'];
+		header("location: adminCore.php");
 	}else{
 		header("location:  View/adminLogin.php?error");
 	}
 }
 
-if(isset($_POST['Logout'])){
+if(isset($_GET['Logout'])){
 	session_destroy();
 	header("location: index.php");
 }
+
+/*??*************************************/
 
 if( isset($_GET['admin']) ){
 	header("location: View/adminLogin.php");

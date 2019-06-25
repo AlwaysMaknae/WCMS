@@ -26,7 +26,7 @@ class UsersBean{
 		return $array;
 	}
 
-	
+
 
     /**
      * @return mixed
