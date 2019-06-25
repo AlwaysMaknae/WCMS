@@ -43,3 +43,34 @@ if( isset($_GET['admin']) ){
 if(isset($_GET['page'])){
 	$Index = new IndexController( $_GET['page'] );
 }
+
+// Small form
+if(isset($_POST['FormSubmit'])){
+	$to = $_POST['email'];
+	$subject = "You contacted the admin!";
+	$id = $_POST['name'];
+	$content = $_POST['comment'];
+
+	$headers = array(
+		'From' 			=> 'jose.19315@hotmail.com',
+		'Reply-To' 		=> 'jose.19315@hotmail.com',
+		'X-Mailer'		=> 'PHP/' . phpversion(),
+		'MIME-Version' 	=> '1.0',
+		'Content-type' 	=>  'text/html; charset=utf-8'
+	);
+
+	$msg = '
+	<!DOCTYPE html>
+	<html>
+	<body>
+	<h1>Hi, ' . $id . '</h1>
+	<p>You sent the following to the admin: ' . $content . '</p>
+	<p>---<br>Jose W.</p>
+	</body>
+	</html>
+
+	';
+
+	var_dump(mail($to, $subject, $msg, $headers));
+	header("location: View/mail.php");
+}
