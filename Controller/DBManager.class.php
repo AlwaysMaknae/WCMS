@@ -80,7 +80,7 @@ class DBManager{
 	public function getLogo(){
 		$query = $this->db->query("SELECT `logo_fk` from application ");
 		$getlogokey = $query->fetch(PDO::FETCH_ASSOC);
-<<<<<<< HEAD
+
 
 		$logoQ = $this->db->prepare("SELECT * FROM uploads WHERE id=:id");
 		$logoQ->execute(array("id"=>$getlogokey["logo_fk"]));
@@ -98,14 +98,6 @@ class DBManager{
 		$owner = $ownerQ->fetch(PDO::FETCH_ASSOC);
 
 		return $owner;
-=======
-
-		$logoQ = ("SELECT * FROM uploads WHERE id=:id");
-		$logoQ = execute(array($getlogokey));
-
-		return $logoQ;
-
->>>>>>> f7361c653bd075250fd708e78b12e704198d4f55
 	}
 
 	public function getWebmaster(){
@@ -116,14 +108,6 @@ class DBManager{
 		$ownerQ->execute(array("id"=>$getwebmasterkey["webmaster_fk"]));
 		$owner = $ownerQ->fetch(PDO::FETCH_ASSOC);
 
-<<<<<<< HEAD
 		return $owner;
 	}
-=======
-	// 	$ownerQ = ("SELECT * FROM users WHERE id=:id");
-	// 	$ownerQ->execute(array($id, $username));
-	// 	$getownerkey
-	// }
->>>>>>> f7361c653bd075250fd708e78b12e704198d4f55
 }
-
