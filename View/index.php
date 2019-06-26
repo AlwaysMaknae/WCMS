@@ -1,7 +1,7 @@
 <?php include "header.php" ?>
 <?php
-$DBManager = new DBManager();
-$application = $DBManager->getApplication();
+	$DBManager = new DBManager();
+	$application = $DBManager->getApplication();
 ?>
 <!-- navbar -->
 <h1>	<?=$application['title'] ?> </h1>
@@ -22,7 +22,7 @@ $application = $DBManager->getApplication();
 	<h2> <?php echo $thePage->getTitle(); ?></h2>
 
 	<?php
-	echo $thePage->getContent();
+		echo $thePage->getContent();
 	?>
 
 </div>

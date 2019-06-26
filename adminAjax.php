@@ -14,7 +14,7 @@ if( isset($_GET["Page"]) && $_GET["Page"] != "Select Page" ):
 
 elseif ( isset($_GET["Save"]) ) :
   if($_POST["content"] == "empty" ){
-
+    //nothig
   } else {
     $Manager->updatePageContent( $_POST["id"], $_POST["title"], $_POST["content"]);
   }
@@ -35,6 +35,10 @@ elseif ( isset($_GET["Upload"] ) ):
     return false;
   }
 
+  elseif ( isset( $_GET["Add"] ) ):
+    $title = $_GET["Add"];
+    $Manager->addPage( $title );
+    echo "Made It : " . $_GET["Add"] ;
 
 
 
@@ -42,5 +46,5 @@ elseif ( isset($_GET["Upload"] ) ):
 
 
 else:
-  echo "false";
+  echo "Nothing";
 endif;

@@ -12,7 +12,9 @@ function App( App = {
   buttonSelector:".add",
   submitSelector:".submit",
   titleSelector:"#pageTitle",
-  selectImageSelector:"#imgSelect"
+  selectImageSelector:"#imgSelect",
+  saveMessageSelector:"#saveOutput",
+  pageSelectSelector:"#PagesSelect"
   }){
 
   var Ents = { p:"Paragraph", h2:"MainTitle", h3:"SmallTitle", a:"Paragraph", hr:"HorizontalRule" };
@@ -53,11 +55,14 @@ function App( App = {
      //console.log(action);
      if(action == "Save"){
        var htmlParsed = appPage.parse();
-       $("#input").html(htmlParsed);
-
        saveAJ({content:htmlParsed,
          title:$(App.titleSelector).val()
        });
+
+       var title = "<h2>" + $(App.titleSelector).val() + "</h2>";
+       $("#input").html(title+htmlParsed);
+       
+       $(App.saveMessageSelector).html("Page Saved");
 
      } else if(action == "Preview"){
        var htmlParsed = appPage.parse();
@@ -85,10 +90,7 @@ function App( App = {
           tag = EntsI[ pageEl.tagName.toLowerCase() ];
 
           if(tag == EntsI.img){
-            console.log( $(pageEl).attr("src") );
-            console.log( $(pageEl).attr("alt") );
             pageEl = new window[ tag ]( $(pageEl).attr("src"), $(pageEl).attr("alt") );
-            console.log(pageEl);
           } else if( $(pageEl).attr("href") ){
             link = $(pageEl).attr("href");
             pageEl = new window[ tag ]( pageEl.innerHTML, link );

@@ -23,7 +23,7 @@ class AdminManager extends PDO {
 }
 
 public function getPages(){
-    $pageQ = $this->query("SELECT `id`, `title` FROM `pages`");
+    $pageQ = $this->query("SELECT `id`, `title`, `subtitle` FROM `pages`");
     $pages = $pageQ->fetchAll( PDO::FETCH_ASSOC );
     $pp = [];
 
@@ -73,6 +73,16 @@ public function getPages(){
       "file" => $up->getFile(false),
       "title"=>$up->getTitle(),
       "alt"=>$up->getAlt()
+    ]);
+    return $result;
+  }
+
+  public function addPage($title){
+    $addPq = $this->prepare("INSERT INTO `pages`(`id`, `title`, `subtitle`, `content`) VALUES (DEFAULT,:title,:subtitle,:content)" );
+    $result = $addPq->execute([
+      "title"=>$title,
+      "subtitle"=>"Page",
+      "content"=>"<h3>New Page</h3>",
     ]);
     return $result;
   }
