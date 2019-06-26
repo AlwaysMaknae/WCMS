@@ -11,12 +11,15 @@ function App( App = {
   contentSelector:"#app",
   buttonSelector:".add",
   submitSelector:".submit",
-  titleSelector:"#pageTitle"
+  titleSelector:"#pageTitle",
+  selectImageSelector:"#imgSelect",
+  saveMessageSelector:"#saveOutput",
+  pageSelectSelector:"#PagesSelect"
   }){
 
   var Ents = { p:"Paragraph", h2:"MainTitle", h3:"SmallTitle", a:"Paragraph", hr:"HorizontalRule" };
   var EntsI = { p:"ParagraphInput", h2:"MainTitleInput",
-  h3:"SmallTitleInput", a:"LinkInput", hr:"HorizontalRuleInput" };
+  h3:"SmallTitleInput", a:"LinkInput", hr:"HorizontalRuleInput", img:"ImageInput" };
   var appPage = new Page( App.contentSelector ,[]);
 
 
@@ -29,9 +32,18 @@ function App( App = {
 // Adding Btns
   $( App.buttonSelector ).each(function(e){
      var newEntity = $(this).attr("name");
+     var pageEl = null;
      $(this).click( function(){
-       var pageEl = new window[ EntsI[newEntity] ]();
-       appPage.add( pageEl );
+       if( newEntity == "img"){
+         var alt = $(App.selectImageSelector + " option:selected")[0];
+         alt = $(alt).html();
+         pageEl  = new window[ EntsI[newEntity] ]( $(App.selectImageSelector).val(), alt  );
+         appPage.add( pageEl );
+       } else {
+         pageEl = new window[ EntsI[newEntity] ]();
+         appPage.add( pageEl );
+       }
+
      });
   });
 
@@ -43,11 +55,14 @@ function App( App = {
      //console.log(action);
      if(action == "Save"){
        var htmlParsed = appPage.parse();
-       $("#input").html(htmlParsed);
-
        saveAJ({content:htmlParsed,
          title:$(App.titleSelector).val()
        });
+
+       var title = "<h2>" + $(App.titleSelector).val() + "</h2>";
+       $("#input").html(title+htmlParsed);
+       
+       $(App.saveMessageSelector).html("Page Saved");
 
      } else if(action == "Preview"){
        var htmlParsed = appPage.parse();
@@ -74,11 +89,15 @@ function App( App = {
         if( pageEl != undefined ){
           tag = EntsI[ pageEl.tagName.toLowerCase() ];
 
-          if( $(pageEl).attr("href") ){
+          if(tag == EntsI.img){
+            pageEl = new window[ tag ]( $(pageEl).attr("src"), $(pageEl).attr("alt") );
+          } else if( $(pageEl).attr("href") ){
             link = $(pageEl).attr("href");
+            pageEl = new window[ tag ]( pageEl.innerHTML, link );
+          } else {
+            pageEl = new window[ tag ]( pageEl.innerHTML, link );
           }
 
-          pageEl = new window[ tag ]( pageEl.innerHTML, link );
           appPage.add( pageEl );
         }
       }
@@ -122,7 +141,7 @@ function Page(app, elements = []){
 
 
   this.parse = function(){
-    var input = $(app + " input, " + app + " textarea");
+    var input = $(app + " input, " + app + " textarea, "+ app + " .targetbox-img");
     var page = "";
 
     var ei = "";
@@ -133,12 +152,15 @@ function Page(app, elements = []){
         page += "<" +boxi+ " />";
       } else if (boxi == "a") {
         page += "<" +boxi+ " href='" +$(this).next().val() + "' target='_blank' >" + $(this).val() + "</" +boxi+ ">";
+      } else if( boxi == "img"){
+        page += $(this).html();
       } else if( boxi == "href"){
         // nothing ? lel
       } else {
         page += "<" +boxi+ ">" + $(this).val() + "</" +boxi+ ">";
       }
     });
+
     return page;
 
 

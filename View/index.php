@@ -23,7 +23,7 @@ $logo = $DBManager->getLogo();
 <h2><?php echo $thePage->getTitle(); ?></h2>
 <div class="content">
 	<?php
-	echo $thePage->getContent();
+		echo $thePage->getContent();
 	?>
 
 	<?php include "footer.php" ?>

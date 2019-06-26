@@ -16,8 +16,19 @@ $(function(){
     });
   });
 
+  PublicApp.addPageAJ = function(title, OutPutSelector){
+    if(title == ""){
+      return false;
+    } else {
+      $.get( "adminAjax.php?Add=" + title , function( data, status ) {
+        $(OutPutSelector).html(data);
+      });
+      return true;
+    }
+  }
 
 });
+
 function saveAJ(Content = {
   content: "empty",
   title: "empty"
