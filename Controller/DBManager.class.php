@@ -13,7 +13,7 @@ class DBManager{
 	public function __construct(){
 		$host = "localhost";
 		$user = "root";
-		$password = "";
+		$password = "root";
 		$dbname = "block2_project";
 
 		try{

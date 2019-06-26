@@ -26,7 +26,6 @@ $(function(){
       return true;
     }
   }
-
 });
 
 function saveAJ(Content = {

@@ -21,7 +21,6 @@ function Pages( App = {
       $(App.OutPutSelector).html("Title can't be empty");
     } else {
       var result = PublicApp.addPageAJ(title, App.OutPutSelector);
-      
     }
 
   });
