@@ -1,11 +1,10 @@
 <?
 $DBManager = new DBManager();
-$footer = $DBManager->getFooter();
+$owner = $DBManager->getOwner();
+$webmaster = $DBManager->getWebmaster();
 ?>
-<div class="container text-center">
-	<hr style="color: black;">
-	<p>Copyright © 2020 • <?=$footer['username']; ?> | Conçu par </p>
-</div>
+	<hr>
+	<p class="footer">Copyright © 2020 • <?=$owner['firstname']; ?> | Conçu par <?=$webmaster['firstname']; ?></p>
 </div>
 
 </body>

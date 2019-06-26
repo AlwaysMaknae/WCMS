@@ -5,13 +5,12 @@ $application = $DBManager->getApplication();
 $logo = $DBManager->getLogo();
 ?>
 <!-- navbar -->
-<?=$application['title'] ?>
-<img src="uploads/	<?=$logo['file'] ?>">
-<div class="content">
-	<ul class="navbar-nav navbar-expand bg-dark">
+<div class="nav">
+	<a href="index.php"><img src="uploads/<?=$logo['file'] ?>" height="200"></a>
+	<ul class="">
 		<?php foreach($navPages as $p): ?>
 			<li class="nav-item">
-				<a class="nav-link m-3" href="core.php?page=<?= $p->getId(); ?>"  ><?= $p->getTitle(); ?></a>
+				<a class="navbar" href="core.php?page=<?= $p->getId(); ?>"  ><?= $p->getTitle(); ?></a>
 			</li>
 		<?php endforeach; ?>
 		<?php
@@ -19,14 +18,12 @@ $logo = $DBManager->getLogo();
 		?>
 	</ul>
 </div>
-<div class="container">
-	<h2> <?php echo $thePage->getTitle(); ?></h2>
 
+<?=$application['title']; ?>
+<h2><?php echo $thePage->getTitle(); ?></h2>
+<div class="content">
 	<?php
 	echo $thePage->getContent();
 	?>
 
-</div>
-
-
-<?php include "footer.php" ?>
+	<?php include "footer.php" ?>

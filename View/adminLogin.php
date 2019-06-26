@@ -3,7 +3,7 @@
 	<h1>Login page</h1>
 		<form action="../core.php?Login" method="POST">
 			<div class="form-group">
-				<label for="email">Email address:</label>
+				<label for="email">Username:</label>
 				<input type="text" class="form-control" name="username">
 			</div>
 			<div class="form-group">
@@ -13,4 +13,4 @@
 			<button type="submit" class="btn btn-primary" name="Login">Login</button>
 		</form>
 
-<?php include "footer.php" ?>
+<?php include "adminFooter.php" ?>

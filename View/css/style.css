@@ -1,0 +1,50 @@
+body{
+	background-color: #9fa1d8;
+}
+ul{
+	list-style: none;
+}
+
+li{
+	padding-bottom: 20px;
+}
+
+a{
+	text-decoration: none;
+}
+
+a:visted{
+	color: #fff;
+}
+
+.navbar{
+	font-family: 'Fjalla One', sans-serif;
+}
+
+.nav{
+	height: 100%;
+	width: 225px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #25469196;
+	overflow-x: hidden;
+	padding-top: 16px;
+}
+
+h1, h2{
+	text-align: center;
+	margin-left: 150px;
+}
+
+.content{
+	float: right;
+	margin-left: 300px;
+	margin-right: 100px;
+	text-align: justify;
+}
+
+.footer{
+	text-align: center;
+}

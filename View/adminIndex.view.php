@@ -11,4 +11,4 @@
 	<img src="https://i.redd.it/xuxkzyemvvd11.png" width="1000" alt="error">
 <? endif; ?>
 
-<?php include "footer.php" ?>
+<?php include "adminFooter.php" ?>

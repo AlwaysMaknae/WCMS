@@ -1,12 +1,12 @@
 <?php
 spl_autoload_register(function ($class_name) {
-		$filename = "Controller/".$class_name . '.class.php';
+	$filename = "Controller/".$class_name . '.class.php';
 
-		if (file_exists($filename))
-	    	require_once $filename;
-	    else
-	    	require_once str_replace("Controller", "Model", $filename);
-	});
+	if (file_exists($filename))
+		require_once $filename;
+	else
+		require_once str_replace("Controller", "Model", $filename);
+});
 class DBManager{
 	private $db;
 
@@ -18,7 +18,7 @@ class DBManager{
 
 		try{
 			$this->db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
-		$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		}catch(Exception $e){
 			die("Database Connection Error: " . $e->getMessage());
@@ -86,16 +86,25 @@ class DBManager{
 		$logo = $logoQ->fetch(PDO::FETCH_ASSOC);
 
 		return $logo;
-		die();
-		
 	}
 
-	public function getFooter(){
+	public function getOwner(){
 		$query = $this->db->query("SELECT `owner_fk` FROM application ");
 		$getownerkey = $query->fetch(PDO::FETCH_ASSOC);
 
 		$ownerQ = $this->db->prepare("SELECT * FROM users WHERE id=:id");
 		$ownerQ->execute(array("id"=>$getownerkey["owner_fk"]));
+		$owner = $ownerQ->fetch(PDO::FETCH_ASSOC);
+
+		return $owner;
+	}
+
+	public function getWebmaster(){
+		$query = $this->db->query("SELECT `webmaster_fk` FROM application ");
+		$getwebmasterkey = $query->fetch(PDO::FETCH_ASSOC);
+
+		$ownerQ = $this->db->prepare("SELECT * FROM users WHERE id=:id");
+		$ownerQ->execute(array("id"=>$getwebmasterkey["webmaster_fk"]));
 		$owner = $ownerQ->fetch(PDO::FETCH_ASSOC);
 
 		return $owner;
