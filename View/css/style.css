@@ -1,5 +1,6 @@
 body{
 	background-color: #9fa1d8;
+	font-family: 'PT Sans', sans-serif;
 }
 ul{
 	list-style: none;
@@ -37,9 +38,13 @@ h1, h2{
 	text-align: center;
 	margin-left: 150px;
 }
+h1,h2,h3,h4,h5,h6{
+	font-family: "Fjalla One";
+}
 
 .content{
-	width: 960px;
+	max-width: 960px;
+	min-width: 520px;
 	margin: 0 auto;
 	padding-left: 225px;
 }

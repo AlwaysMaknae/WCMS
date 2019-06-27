@@ -7,9 +7,10 @@ include "Controller/AdminIndexController.class.php";
 include "Controller/AdminUploadsController.class.php";
 
 	//DBN();
+if( empty($_SESSION['admin']) ):
+	header("location: core.php");
 
-if(isset($_GET['Logout'])) :
-
+elseif(isset($_GET['Logout'])) :
 	session_destroy();
 	header("location: core.php");
 

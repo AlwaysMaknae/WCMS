@@ -69,6 +69,10 @@
 			<?php endforeach; ?>
 		</ul>
 
+		<div id="debug">
+
+		</div>
+
 		<ul>
 			<li class="list-group-item" id="PageListTemplate" >
 				<button type="button" name="" class="btn btn-warning float-right"> Refresh to Delete </button>

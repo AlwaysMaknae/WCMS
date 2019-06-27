@@ -61,8 +61,8 @@ function App( App = {
 
        var title = "<h2>" + $(App.titleSelector).val() + "</h2>";
        $("#input").html(title+htmlParsed);
-       
-       $(App.saveMessageSelector).html("Page Saved");
+
+       //$(App.saveMessageSelector).html("Page Saved");
 
      } else if(action == "Preview"){
        var htmlParsed = appPage.parse();

@@ -6,7 +6,7 @@ $(function(){
     var pageId = $("#PagesSelect option:selected").val();
     $.get( "adminAjax.php?Page=" + pageId , function( data ) {
 
-      if(data != "false"){
+      if(data != "Denied"){
         var content = JSON.parse(data);
         //$( "#debug" ).append( data );
         //console.log(data);
@@ -14,6 +14,8 @@ $(function(){
           content: content["content"],
           title: content["title"]
         });
+      } else {
+        console.log("REQUEST DENIED BY SERVER");
       }
     });
   });
@@ -28,7 +30,10 @@ $(function(){
     } else {
       $.get( "adminAjax.php?Add=" + title , function( data, status ) {
         $(OutPutSelector).html(data);
-        addPageToList(data);
+        if( data != "Denied" ){
+          addPageToList(data);
+        }
+
       });
       return true;
     }
@@ -42,7 +47,7 @@ function saveAJ(Content = {
   //console.log(Content);
   Content.id = $("#PagesSelect option:selected").val();
   $.post( "adminAjax.php?Save=", Content , function(data){
-    $("#input").html(data);
+    $("#saveOutput").html(data);
   });
 }
 

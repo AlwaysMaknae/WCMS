@@ -13,6 +13,9 @@ spl_autoload_register(function ($class_name) {
 $admin = "admin";
 $adminpassword = "admin";
 
+//NAVIGATION
+
+
 if(isset($_GET['Login'])){
 	$users = new UsersBean($_POST);
 	$usersArray = $users->toArray();
@@ -28,24 +31,17 @@ if(isset($_GET['Login'])){
 		$_SESSION['admin'] = $_POST['username'];
 		header("location: adminCore.php");
 	}else{
-		header("location:  View/adminLogin.php?error");
+		header("location:  adminLogin.php?error");
 	}
-}
-
-if(isset($_GET['Logout'])){
+} elseif(isset($_GET['Logout'])){
 	session_destroy();
 	header("location: index.php");
-}
-
-/*??*************************************/
-
-if( isset($_GET['admin']) ){
-	header("location: View/adminLogin.php");
-}
-
-// Display pages
-if(isset($_GET['page'])){
+}elseif( isset($_GET['admin']) ){
+	header("location: adminLogin.php");
+}elseif(isset($_GET['page'])){
 	$Index = new IndexController( $_GET['page'] );
+} else{
+	$Index = new IndexController( 1 );
 }
 
 // Small form

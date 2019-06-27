@@ -6,16 +6,20 @@ include "Model/Utils.class.php";
 
 $Page = null;
 
-if( isset($_GET["Page"]) && $_GET["Page"] != "Select Page" ):
+if( empty($_SESSION['admin']) ):
+  echo "Denied";
+
+elseif( isset($_GET["Page"]) && $_GET["Page"] != "Select Page" ):
   $Page = $_GET["Page"];
   $Page = $Manager->getPage( $_GET["Page"], true );
   echo $Page;
 
 elseif ( isset($_GET["Save"]) ) :
   if($_POST["content"] == "empty" ){
-    //nothig
+    echo "Don't leave page Empty";
   } else {
     $Manager->updatePageContent( $_POST["id"], $_POST["title"], $_POST["content"]);
+    echo $_POST["title"] ." page Saved.";
   }
 
 elseif ( isset($_GET["Upload"] ) ):
@@ -45,11 +49,6 @@ elseif ( isset($_GET["Upload"] ) ):
     $Manager->DeletePage( $id );
     echo "Deleted Page " . $_GET["Delete"] ;
 
-
-
-
-
-
 else:
-  echo "Nothing";
+  echo "Denied";
 endif;

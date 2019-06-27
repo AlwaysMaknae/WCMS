@@ -1,7 +1,7 @@
-<?php include "header.php" ?>
+<?php include "View/header.php" ?>
 
 	<h1>Login page</h1>
-		<form action="../core.php?Login" method="POST">
+		<form action="core.php?Login" method="POST">
 			<div class="form-group">
 				<label for="email">Username:</label>
 				<input type="text" class="form-control" name="username">
@@ -12,5 +12,10 @@
 			</div>
 			<button type="submit" class="btn btn-primary" name="Login">Login</button>
 		</form>
+		<?php if( isset($_GET["error"])): ?>
+		 <div class="error">
+		 	<p>invalid credentials</p>
+		 </div>
+	 <?php endif; ?>
 
-<?php include "adminFooter.php" ?>
+<?php include "View/adminFooter.php" ?>

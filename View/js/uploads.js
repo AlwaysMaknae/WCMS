@@ -35,15 +35,20 @@ var PublicApp;
             cache: false,
             processData: false,
             success:function(data){
-
-
-              var res = JSON.parse(data);
-              if( !res.error ){
-                newUploadCard(App.CardOutputSelector , res);
-                var succesMsg = res.title + " was uploaded succesfully." ;
-                $(App.OutputSelector).html(succesMsg);
+              console.log(data);
+              if(data == "Denied"){
+                $(App.OutputSelector).html(data);
               } else {
-                $(App.OutputSelector).html(res.message);
+
+                var res = JSON.parse(data);
+                if( !res.error ){
+                  newUploadCard(App.CardOutputSelector , res);
+                  var succesMsg = res.title + " was uploaded succesfully." ;
+                  $(App.OutputSelector).html(succesMsg);
+                } else {
+                  $(App.OutputSelector).html(res.message);
+                }
+
               }
             }
           });
@@ -53,7 +58,6 @@ var PublicApp;
       });
 
       var cardTemplate = $("#CardTemplate").hide();
-      console.log(cardTemplate);
 
       function newUploadCard( OutPutSelector, UploadInfo ){
         var cardHtml = $(cardTemplate[0]).clone();
