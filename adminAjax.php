@@ -6,7 +6,6 @@ include "Model/Utils.class.php";
 
 $Page = null;
 
-
 if( isset($_GET["Page"]) && $_GET["Page"] != "Select Page" ):
   $Page = $_GET["Page"];
   $Page = $Manager->getPage( $_GET["Page"], true );
@@ -38,7 +37,12 @@ elseif ( isset($_GET["Upload"] ) ):
   elseif ( isset( $_GET["Add"] ) ):
     $title = $_GET["Add"];
     $Manager->addPage( $title );
-    echo "Made It : " . $_GET["Add"] ;
+    echo "Page " . $_GET["Add"] . " was added." ;
+
+  elseif ( isset( $_GET["Delete"] ) ):
+    $id = $_GET["Delete"];
+    $Manager->DeletePage( $id );
+    echo "Deleted Page " . $_GET["Delete"] ;
 
 
 

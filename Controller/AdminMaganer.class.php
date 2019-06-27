@@ -33,6 +33,33 @@ public function getPages(){
     return $pp;
   }
 
+  public function getPagesForDelete(){
+      $pageQ = $this->query("SELECT `id`, `title`, `subtitle` FROM `pages` WHERE subtitle='Page'");
+      $pages = $pageQ->fetchAll( PDO::FETCH_ASSOC );
+      $pp = [];
+
+      foreach( $pages as $p){
+        $pp[] = new PageBean($p);
+      }
+      return $pp;
+    }
+
+  public function getAppTitle(){
+    $titleQ = $this->query("SELECT `title` FROM `application`");
+    $title = $titleQ->fetch( PDO::FETCH_COLUMN );
+    $ee = $titleQ->errorInfo();
+
+    return $title;
+  }
+
+  public function UpdateTitle($title){
+    $pageU = $this->prepare("UPDATE `application` SET `title`=:title");
+    $pageU->execute( ["title"=>$title] );
+  }
+
+
+
+
 
   public function getPage($id, $async=false){
     $pageQ = $this->prepare("SELECT * FROM `pages` WHERE id = :id LIMIT 1");
@@ -52,6 +79,11 @@ public function getPages(){
     $pageU->execute( ["id" => $id,
     "title"=>$title,
     "content"=>$content] );
+  }
+
+  public function deletePAge($id){
+    $pageD = $this->prepare("DELETE FROM `pages` WHERE `id`=:id");
+    $pageD->execute( ["id" => $id] );
   }
 
 

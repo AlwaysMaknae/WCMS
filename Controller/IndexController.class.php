@@ -8,6 +8,5 @@ class IndexController{
     $navPages = $this->db->getAllPages();
     $thePage = $this->db->getOnePage($pageId);
     include "View/index.php";
-
   }
 }
