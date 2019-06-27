@@ -20,7 +20,7 @@ elseif ( isset($_GET["Save"]) ) :
 
 elseif ( isset($_GET["Upload"] ) ):
   $file = Utils::imageHandle( "file" );
-  if($file){
+  if($file["succes"]){
     $upload = new UploadBean([
         "title"=> $_POST["title"],
         "alt"=> $_POST["alt"],
@@ -28,10 +28,11 @@ elseif ( isset($_GET["Upload"] ) ):
     ]);
 
     $result = $Manager->addUpload( $upload );
-    $boo = $upload->getJSON();
-    return true;
+    $UploadOutput = $upload->getJSON();
+    echo $UploadOutput;
   } else {
-    return false;
+    $err = ["error" => true, "message" => $file["error"] ];
+    echo json_encode($err);
   }
 
   elseif ( isset( $_GET["Add"] ) ):

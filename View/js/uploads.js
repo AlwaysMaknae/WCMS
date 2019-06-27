@@ -10,6 +10,7 @@ var PublicApp;
       FormSelector:"#UploadForm",
       OutputSelector:"#output",
       SubmitSelector:"#UploadSubmit",
+      CardOutputSelector:"#CardOutput",
       ContentSelectors : {
         File : "input[name=file]",
         Title : "input[name=title]",
@@ -34,16 +35,39 @@ var PublicApp;
             cache: false,
             processData: false,
             success:function(data){
-              console.log( data );
+
+
+              var res = JSON.parse(data);
+              if( !res.error ){
+                newUploadCard(App.CardOutputSelector , res);
+                var succesMsg = res.title + " was uploaded succesfully." ;
+                $(App.OutputSelector).html(succesMsg);
+              } else {
+                $(App.OutputSelector).html(res.message);
+              }
             }
           });
         } else {
           $(App.OutputSelector).html( "All fields are Required" );
         }
-
-
-        var fData = new FormData(this);
       });
+
+      var cardTemplate = $("#CardTemplate").hide();
+      console.log(cardTemplate);
+
+      function newUploadCard( OutPutSelector, UploadInfo ){
+        var cardHtml = $(cardTemplate[0]).clone();
+          $(cardHtml).find("#CardFile").attr("src", UploadInfo.file );
+          $(cardHtml).find("#CardFile").attr("alt", UploadInfo.alt );
+
+          $(cardHtml).find("#CardTitle").html("New Upload : "+ UploadInfo.title );
+          $(cardHtml).find("#CardAlt").html( UploadInfo.alt );
+
+          $(cardHtml).fadeIn();
+          //("style", "width:18rem;");
+      $(OutPutSelector).prepend(cardHtml);
+
+      }
 
 
   }

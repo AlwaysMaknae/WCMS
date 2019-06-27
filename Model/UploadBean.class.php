@@ -31,13 +31,13 @@ class UploadBean{
   }
 
   public function getJSON(){
-    //return json_encode( $this->toArray() );
+    return json_encode( $this->toArray() );
     return $this->toArray();
   }
 
   protected function toArray(){
     $props = [
-      "file" => $this->getFile(false),
+      "file" => $this->getFile(),
       "title" => $this->getTitle(),
       "alt" => $this->getAlt()
     ];

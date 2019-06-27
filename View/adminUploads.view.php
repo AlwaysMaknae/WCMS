@@ -24,7 +24,7 @@
     <h2>All Uploads</h2>
   </div>
   <div class="container">
-    <div class="row">
+    <div class="row" id="CardOutput">
       <?php foreach ($Uploads as $img): ?>
         <div class="card mx-2" style="width: 18rem;" >
           <img class="card-img-top" src="<? echo $img->getFile(); ?>" alt="<? echo $img->getAlt(); ?>">
@@ -40,6 +40,16 @@
     </div>
 
   </div>
+
+
+  <div id="CardTemplate" class="card mx-2" style="width: 18rem;" >
+    <img class="card-img-top" src="" alt="" id="CardFile">
+    <div class="card-body">
+      <p class="font-bold" id="CardTitle"></p>
+      <p class="font-italic" id="CardAlt"></p>
+    </div>
+  </div>
+
 
 
 

@@ -22,6 +22,9 @@
 	#app input{
 		width: 100%;
 	}
+	#app img, #input img{
+		width: 200px;
+	}
 	#app textarea{
 		width: 100%;
 		resize: vertical;

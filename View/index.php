@@ -19,7 +19,7 @@ $logo = $DBManager->getLogo();
 	</ul>
 </div>
 
-<?=$application['title']; ?>
+<h1><?=$application['title']; ?></h1>
 <h2><?php echo $thePage->getTitle(); ?></h2>
 <div class="content">
 	<?php

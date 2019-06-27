@@ -60,13 +60,19 @@
     </div>
   </div>
 </div>
-		<ul class="list-group">
+		<ul class="list-group" id="PagesList">
 			<?php foreach ($Pages as $p): ?>
 				<li class="list-group-item">
 					<? echo $p->getId() . " : " . $p->getTitle(); ?>
 					<button type="button" name="delete-<? echo $p->getId(); ?>" class="btn btn-danger float-right delete">Delete</button>
 				</li>
 			<?php endforeach; ?>
+		</ul>
+
+		<ul>
+			<li class="list-group-item" id="PageListTemplate" >
+				<button type="button" name="" class="btn btn-warning float-right"> Refresh to Delete </button>
+			</li>
 		</ul>
 
 

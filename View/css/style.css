@@ -39,12 +39,18 @@ h1, h2{
 }
 
 .content{
-	float: right;
-	margin-left: 300px;
-	margin-right: 100px;
-	text-align: justify;
+	width: 960px;
+	margin: 0 auto;
+	padding-left: 225px;
+}
+.content img{
+	float: left;
+}
+hr{
+	clear: both;
 }
 
 .footer{
+	clear: both;
 	text-align: center;
 }

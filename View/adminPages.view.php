@@ -81,12 +81,7 @@
 		</div>
 	  <div class="tab-pane fade" id="nav-profile"
 		role="tabpanel" aria-labelledby="nav-profile-tab">
-
-			<div class="">
-				<!-- <p class="font-italic font-weight-light" >If not up to date, click the Preview button.</p> -->
-			</div>
 			<div id="input" ></div>
-
 		</div>
 	</div>
 

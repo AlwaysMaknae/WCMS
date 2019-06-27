@@ -89,7 +89,7 @@ public function getPages(){
 
 
   public function getUploads(){
-    $pageQ = $this->query("SELECT * FROM `uploads`");
+    $pageQ = $this->query("SELECT * FROM `uploads` ORDER BY `id` DESC");
     $pages = $pageQ->fetchAll( PDO::FETCH_ASSOC );
     $pp = [];
 
