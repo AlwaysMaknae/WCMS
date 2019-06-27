@@ -1,5 +1,8 @@
 <?php include "View/header.php" ?>
 
+<a href="core.php">
+	<button type="button" name="back"> Back to Website </button>
+</a>
 	<h1>Login page</h1>
 		<form action="core.php?Login" method="POST">
 			<div class="form-group">

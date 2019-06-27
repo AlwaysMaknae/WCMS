@@ -54,7 +54,15 @@ h1,h2,h3,h4,h5,h6{
 hr{
 	clear: both;
 }
-
+#adminLogin{
+	width: 20px;
+	height: 20px;
+	/*background-color: red;*/
+	display: block;
+	position: absolute;
+	bottom:16px;
+	left: 0;
+}
 .footer{
 	clear: both;
 	text-align: center;

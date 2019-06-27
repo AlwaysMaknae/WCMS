@@ -6,6 +6,7 @@ $logo = $DBManager->getLogo();
 ?>
 <!-- navbar -->
 <div class="nav">
+	<a href="admin" id="adminLogin"></a>
 	<a href="index.php"><img src="uploads/<?=$logo['file'] ?>" height="200"></a>
 	<ul class="">
 		<?php foreach($navPages as $p): ?>
