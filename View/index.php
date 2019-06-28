@@ -5,24 +5,33 @@ $application = $DBManager->getApplication();
 $logo = $DBManager->getLogo();
 ?>
 <!-- navbar -->
-<nav>
-	<a href="admin" id="adminLogin"></a>
+<header>
+	<a href="admin.php" id="adminLogin"></a>
 
-	<a href="index.php"><img src="uploads/<?=$logo['file'] ?>" height="200"></a>
-	<ul class="">
-		<?php foreach($navPages as $p): ?>
-			<li class="nav-item">
-				<a class="navbar" href="core.php?page=<?= $p->getId(); ?>"  ><?= $p->getTitle(); ?></a>
-			</li>
-		<?php endforeach; ?>
-	</ul>
+	<nav>
+		<ul>
+			<?php foreach($navPages as $p): ?>
+				<li class="nav-item">
+					<a class="navbar" href="core.php?page=<?= $p->getId(); ?>"  ><?= $p->getTitle(); ?></a>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</nav>
+
+	<a href="index.php" id="logo"><img src="uploads/<?=$logo['file'] ?>" height="200"></a>
+
+		<p id="more-btn">Plus d'information.</p>
+
 		<?php echo $application['smallcontact']; ?>
-</nav>
+</header>
 
 <!-- Content  -->
+<?php  /*  ?>
 <h1><?=$application['title']; ?></h1>
-<h2><?php echo $thePage->getTitle(); ?></h2>
+<?php */ ?>
+
 <div class="content" id="<?php echo $thePage->getSubtitle(); ?>">
+	<h1><?php echo $thePage->getTitle(); ?></h1>
 	<?php echo $thePage->getContent(); ?>
 </div>
 

@@ -1,0 +1,164 @@
+// out: style.css
+// main: main.less
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:400,700&display=swap&subset=latin-ext');
+*{
+  margin: 0;
+  padding: 0;
+}
+
+@grey : #646863;
+@red : #840000;
+
+body{
+//  background-color: red;
+  font-family: 'Open Sans', sans-serif;
+  background-color: @grey;
+}
+
+#adminLogin{
+//  background-color: red;
+/*  width: 50px;
+  height: 50px;
+  display: block;
+*/
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Fjalla One', 'Open Sans',sans-serif;
+  color:@red;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+header{
+  color:#fff;
+  width: 100%;
+  background: url("../../assets2/background_1.jpg") no-repeat center center;
+  background-size: cover;
+  height: 600px;
+  #logo{
+    display: block;
+    width: 750px;
+    margin: 100px auto;
+    img{
+      width: 750px;
+      height: auto;
+    }
+  }
+  nav{
+    ul{
+      background-repeat: repeat-x;
+      height: 52px;
+      margin: 0 auto;
+      font-size: 18px;
+      padding-left: 15px;
+      li{
+        display: inline-block;
+        width: 200px;
+        a{
+          display: block;
+          padding-top:15px;
+          padding-bottom:15px;
+          width: 100%;
+          text-decoration: none;
+          color: inherit;
+          &:hover{
+            border-bottom: 1px solid #fff;
+          }
+        }
+      }
+    }
+  }
+
+  #more-btn{
+    background-color: @red;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    font-size: 24px;
+    padding: 20px;
+    text-transform: uppercase;
+    border: 1px solid #fff;
+  }
+  form {
+    width: 217px;
+    background-color: @red;
+    padding: 30px;
+    font-size: 20px;
+    //margin-top: -125px;
+    height: 300px;
+    position: absolute;
+    top: 240px;
+    
+    input, textarea{
+      width: 200px;
+      font-size: 20px;
+      margin-top: 10px;
+      padding: 3px;
+    }
+    input[type=submit]{
+      width: 210px;
+    }
+    textarea{
+      width: 201px;
+    }
+  }
+}
+
+.content{
+  width: 1250px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: #fff;
+  h1{
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  img{
+    max-width: 25%;
+    height: auto;
+    float: left;
+    padding: 20px;
+    padding-top: 0;
+  }
+  a{
+    padding: 20px;
+    font-size: 20px;
+    background-color: @red;
+    color:#fff;
+    text-decoration: none;
+    display: inline-block;
+  }
+  hr{
+    clear: both;
+  }
+  p{
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  h2{
+    font-size: 26px;
+  }
+  h3{
+    font-size: 30px;
+  }
+  h2, h3{
+    clear: both;
+    margin-top: 40px;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+  }
+}
+
+footer{
+  background-color: @red;
+  padding-top: 40px;
+  text-align: center;
+  padding-bottom: 40px;
+  color:#fff;
+}
