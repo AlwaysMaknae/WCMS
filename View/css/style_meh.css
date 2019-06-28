@@ -22,7 +22,7 @@ a:visted{
 	font-family: 'Fjalla One', sans-serif;
 }
 
-.nav{
+nav{
 	height: 100%;
 	width: 225px;
 	position: fixed;
@@ -34,15 +34,31 @@ a:visted{
 	padding-top: 16px;
 }
 
+nav form{
+	width:200px;
+	padding:0 10px;
+}
+nav form textarea,
+
+nav form input{
+	border: 0;
+	width: 100%;
+}
+nav form textarea{
+	width: 196px;
+	margin-top: 3px;
+}
+
 h1, h2{
 	text-align: center;
 	margin-left: 150px;
 }
 h1,h2,h3,h4,h5,h6{
 	font-family: "Fjalla One";
+	text-transform: uppercase;
 }
 
-.content{
+.content, footer{
 	max-width: 960px;
 	min-width: 520px;
 	margin: 0 auto;
