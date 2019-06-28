@@ -19,8 +19,7 @@ $logo = $DBManager->getLogo();
 	</nav>
 
 	<a href="index.php" id="logo"><img src="uploads/<?=$logo['file'] ?>" height="200"></a>
-
-		<p id="more-btn">Plus d'information.</p>
+	<p id="more-btn">Plus d'information.</p>
 
 		<?php echo $application['smallcontact']; ?>
 </header>

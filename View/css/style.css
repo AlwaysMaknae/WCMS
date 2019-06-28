@@ -42,26 +42,30 @@ header #logo img {
   height: auto;
 }
 header nav ul {
-  background-repeat: repeat-x;
+  background-color: rgba(132, 0, 0, 0.8);
   height: 52px;
   margin: 0 auto;
   font-size: 18px;
-  padding-left: 15px;
+  padding-bottom: 23px;
 }
 header nav ul li {
   display: inline-block;
-  width: 200px;
+  width: 175px;
+  margin-right: 20px;
 }
 header nav ul li a {
   display: block;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 25px;
   width: 100%;
   text-decoration: none;
   color: inherit;
+  transition: background-color 250ms;
 }
 header nav ul li a:hover {
   border-bottom: 1px solid #fff;
+  background-color: #510000;
 }
 header #more-btn {
   background-color: #840000;
