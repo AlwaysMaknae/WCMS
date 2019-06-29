@@ -54,6 +54,10 @@ function HorizontalRuleInput(content=""){
   $(this.getElement()).attr("value", "Horizontal Rule");
 }
 
+function DivEditInput(content=""){
+  Object.assign(this, new EditDivInput(content) );
+}
+
 
 function ImageInput(src = "", alt = ""){
   //box, content="", placeholder=""
@@ -109,13 +113,15 @@ function AreaInputEnt(box, content="", placeholder=""){
   var b = document.createElement( this.box );
       $(b).attr("placeholder", placeholder);
       $(b).attr("class", "targetbox-" + box);
-      $(b).attr("value", this.content);
+      //$(b).attr("value", this.content);
       $(b).append( this.content );
 
   this.getElement = function(){
     return b;
   }
 }
+
+
 
 function InputEnt(box, content="", placeholder=""){
   this.box = "input";

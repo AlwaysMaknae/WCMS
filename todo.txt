@@ -1,0 +1,15 @@
+[Admin]
+Manager random metas.
+
+[Client]
+Responsive CSS
+Admin Login page CSS
+
+Toggle question form ( main btn )
+( J ): Gallery plugin
+
+[Code]
+Comments
+
+[Live:Live Deploy]
+ Vrify live DB credentials

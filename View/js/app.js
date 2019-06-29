@@ -55,9 +55,12 @@ function App( App = {
      //console.log(action);
      if(action == "Save"){
        var htmlParsed = appPage.parse();
-       saveAJ({content:htmlParsed,
-         title:$(App.titleSelector).val()
-       });
+       if( htmlParsed != ""){
+         saveAJ({ content:htmlParsed,
+           title: $(App.titleSelector).val()});
+       } else {
+         $( App.saveMessageSelector ).html("Page can't be empty or can't be edited");
+       }
 
        var title = "<h2>" + $(App.titleSelector).val() + "</h2>";
        $("#input").html(title+htmlParsed);
@@ -87,18 +90,24 @@ function App( App = {
         pageEl = $(ins[el])[0];
 
         if( pageEl != undefined ){
+
           tag = EntsI[ pageEl.tagName.toLowerCase() ];
+          if(tag != undefined){
 
-          if(tag == EntsI.img){
-            pageEl = new window[ tag ]( $(pageEl).attr("src"), $(pageEl).attr("alt") );
-          } else if( $(pageEl).attr("href") ){
-            link = $(pageEl).attr("href");
-            pageEl = new window[ tag ]( pageEl.innerHTML, link );
+            if(tag == EntsI.img){
+              pageEl = new window[ tag ]( $(pageEl).attr("src"), $(pageEl).attr("alt") );
+            } else if( $(pageEl).attr("href") ){
+              link = $(pageEl).attr("href");
+              pageEl = new window[ tag ]( pageEl.innerHTML, link );
+            } else {
+              pageEl = new window[ tag ]( pageEl.innerHTML, link );
+            }
+            appPage.add( pageEl );
           } else {
-            pageEl = new window[ tag ]( pageEl.innerHTML, link );
+              //pageEl = new window[ EntsI.p ]( pageEl.innerHTML );
+              console.log( pageEl );
           }
-
-          appPage.add( pageEl );
+          $(appPage.app).append( pageEl );
         }
       }
     $(App.titleSelector).val( data.title );
@@ -131,7 +140,7 @@ function Page(app, elements = []){
            $(this).parent().remove();
       });
 
-      this.app.append( wrap );
+      this.app.prepend( wrap );
   }
 
   this.empty = function(){
@@ -146,18 +155,24 @@ function Page(app, elements = []){
 
     var ei = "";
     var boxi = "";
+    var bClass = "";
     input.each(function(e){
-      boxi = $(this).attr("class").split("-")[1];
-      if( boxi == "hr"){
-        page += "<" +boxi+ " />";
-      } else if (boxi == "a") {
-        page += "<" +boxi+ " href='" +$(this).next().val() + "' target='_blank' >" + $(this).val() + "</" +boxi+ ">";
-      } else if( boxi == "img"){
-        page += $(this).html();
-      } else if( boxi == "href"){
-        // nothing ? lel
+      bClass = $(this).attr("class");
+      if( bClass != undefined ){
+        boxi = bClass.split("-")[1];
+        if( boxi == "hr"){
+          page += "<" +boxi+ " />";
+        } else if (boxi == "a") {
+          page += "<" +boxi+ " href='" +$(this).next().val() + "' target='_blank' >" + $(this).val() + "</" +boxi+ ">";
+        } else if( boxi == "img"){
+          page += $(this).html();
+        } else if( boxi == "href"){
+          // nothing ? lel
+        } else {
+          page += "<" +boxi+ ">" + $(this).val() + "</" +boxi+ ">";
+        }
       } else {
-        page += "<" +boxi+ ">" + $(this).val() + "</" +boxi+ ">";
+        page += $(this).val();
       }
     });
 

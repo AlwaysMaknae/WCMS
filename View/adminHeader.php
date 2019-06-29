@@ -28,7 +28,7 @@
 	#app textarea{
 		width: 100%;
 		resize: vertical;
-		min-height: 200px;
+		min-height: 100px;
 	}
 
 	#app div{
