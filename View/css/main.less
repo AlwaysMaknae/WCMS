@@ -8,7 +8,11 @@
 }
 
 @grey : #646863;
-@red : #840000;
+@red : #1a6e1e;
+
+
+//1250px
+
 
 body{
 //  background-color: red;
@@ -115,7 +119,7 @@ header{
 }
 
 .content{
-  width: 1250px;
+  width: 1150px;
   max-width: 100%;
   margin: 0 auto;
   padding: 50px;
@@ -167,4 +171,66 @@ footer{
   text-align: center;
   padding-bottom: 40px;
   color:#fff;
+}
+
+.login{
+  h1{
+    font-size: 80px;
+  }
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 5%;
+  font-size: 20px;
+  background-color: #fff;
+  padding: 30px;
+  border: 3px @red solid;
+  label{
+    width: 150px;
+    display: block;
+  }
+  input{
+    font-size: 20px;
+    padding: 5px;
+    margin-top: 20px;
+    width: 95%;
+  }
+
+  button{
+    cursor: pointer;
+    font-size: 20px;
+    padding: 20px;
+    background-color: @red;
+    text-transform: uppercase;
+    font-weight: bold;
+    color:#fff;
+    border:none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  button[name=back]{
+    margin-top: 0;
+  }
+  button[name=Login]{}
+}
+
+/*******************************
+//1250px
+******************************************/
+@media screen and (max-width: 1250px) {
+  body{
+    width: 1200px;
+  }
+  .content{
+    width: 70%;
+    padding: 15%;
+  }
+  header{
+    nav{
+      ul{
+        li{
+          // display: block;
+        }
+      }
+    }
+  }
 }
