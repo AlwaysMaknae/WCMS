@@ -1,9 +1,10 @@
-<?php include "header.php" ?>
+
 <?php
-$DBManager = new DBManager();
-$application = $DBManager->getApplication();
-$logo = $DBManager->getLogo();
+	$DBManager = new DBManager();
+	$application = $DBManager->getApplication();
+	$logo = $DBManager->getLogo();
 ?>
+<?php include "header.php" ?>
 <!-- navbar -->
 <header>
 	<a href="admin.php" id="adminLogin"></a>
