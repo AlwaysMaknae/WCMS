@@ -20,8 +20,23 @@ $logo = $DBManager->getLogo();
 
 	<a href="index.php" id="logo"><img src="uploads/<?=$logo['file'] ?>" height="200"></a>
 	<p id="more-btn">Plus d'information.</p>
+	<script>
+		$(function(){
+			$("#smallForm").hide();
+			$("#more-btn").click(function(){
+				$("#smallForm").fadeToggle();
+			});
+			$("#smallForm").click(function(e){
+				$("#smallForm").fadeOut();
+			});
+		})
+	</script>
 
+	<div id="smallForm" style="display:none">
+		<i>X</i>
 		<?php echo $application['smallcontact']; ?>
+	</div>
+
 </header>
 
 <!-- Content  -->

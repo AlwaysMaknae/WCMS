@@ -80,14 +80,25 @@ header #more-btn {
   text-transform: uppercase;
   border: 1px solid #fff;
 }
-header form {
+header #smallForm {
   width: 217px;
   background-color: #1a6e1e;
   padding: 30px;
   font-size: 20px;
-  height: 300px;
+  height: 320px;
   position: absolute;
   top: 240px;
+}
+header #smallForm i {
+  float: right;
+  border: 1px solid #fff;
+  padding: 2px;
+  font-style: normal;
+  width: 20px;
+  text-align: center;
+  border-radius: 5;
+  cursor: pointer;
+  font-weight: bold;
 }
 header form input,
 header form textarea {
