@@ -110,4 +110,11 @@ class DBManager{
 
 		return $owner;
 	}
+
+	public function getUploads(){
+		$query = $this->db->query("SELECT `file` FROM uploads");
+		$getuploads = $query->fetchAll(PDO::FETCH_ASSOC);
+
+		return $getuploads;
+	}
 }
