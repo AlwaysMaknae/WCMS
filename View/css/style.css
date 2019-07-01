@@ -114,6 +114,7 @@ header form textarea {
   width: 201px;
 }
 .content {
+  overflow: auto;
   width: 1150px;
   max-width: 100%;
   margin: 0 auto;

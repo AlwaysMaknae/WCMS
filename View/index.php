@@ -54,6 +54,15 @@
 	<?php endif; ?>
 
 
+
+
 </div>
+
+<?php if($thePage->getSubtitle() == "Gallery"): ?>
+	<div class="gallery-show">
+		 <i id="GalleryClose">X</i>
+		 <div class="gallery-modal"> </div>
+	</div>
+<?php endif; ?>
 
 	<?php include "footer.php" ?>
