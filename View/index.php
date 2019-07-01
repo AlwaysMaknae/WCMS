@@ -1,9 +1,3 @@
-
-<?php
-	$DBManager = new DBManager();
-	$application = $DBManager->getApplication();
-	$logo = $DBManager->getLogo();
-?>
 <?php include "header.php" ?>
 <!-- navbar -->
 <header>
@@ -48,6 +42,18 @@
 <div class="content" id="<?php echo $thePage->getSubtitle(); ?>">
 	<h1><?php echo $thePage->getTitle(); ?></h1>
 	<?php echo $thePage->getContent(); ?>
+
+	<?php if ($thePage->getSubtitle() == "Contact" ): ?>
+		<br>
+		<hr>
+		<div id="OwnerContact">
+			<h2><?php echo $owner["firstname"] . " " . $owner["lastname"] ?></h2>
+			<p><strong>Email : </strong><em><?php echo $owner["email"]; ?></em></p>
+			<p><strong>Téléphone : </strong><em><?php echo $owner["phone"]; ?></em></p>
+		</div>
+	<?php endif; ?>
+
+
 </div>
 
 	<?php include "footer.php" ?>

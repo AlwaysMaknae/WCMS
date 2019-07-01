@@ -12,9 +12,9 @@
 	<div id="debug" ></div>
 
 	<div class="appSubmits my-4">
-		<button type="button" class="btn btn-primary submit" name="Save"> Save </button>
+		<button type="button" class="btn btn-primary submit" name="Save"> Save Chages </button>
 		<!-- <button type="button" class="btn btn-primary submit" name="Preview"> Preview </button> -->
-		<button type="button" class="btn btn-primary submit" name="Reset"> Reset </button>
+		<!-- <button type="button" class="btn btn-primary submit" name="Reset"> Reset </button> -->
 		<div class="" id="saveOutput"></div>
 	</div>
 

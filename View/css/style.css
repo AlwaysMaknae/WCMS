@@ -190,6 +190,13 @@ header form textarea {
   border-color: #646863;
   color: #646863;
 }
+#OwnerContact h2 {
+  margin-bottom: 20px;
+}
+#OwnerContact p {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
 footer {
   background-color: #1a6e1e;
   padding-top: 40px;
