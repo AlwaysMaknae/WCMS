@@ -179,6 +179,38 @@ header{
   }
 }
 
+#Contact{
+  form{
+    font-size: 20px;
+    label{
+      color:@red;
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-size: 30px;
+      font-family: 'Fjalla One', 'Open Sans',sans-serif;
+    }
+    input, textarea{
+      font-size: 20px;
+      margin-top:10px;
+      padding: 5px;
+    }
+    input[type=submit]{
+      cursor: pointer;
+      border-style: solid;
+      border-color:@red;
+      border-width: 1px;
+      background-color: #fff;
+      color:@red;
+      padding: 10px;
+      font-weight: bold;
+      &:hover{
+        border-color:@grey;
+        color:@grey;
+      }
+    }
+  }
+}
+
 footer{
   background-color: @red;
   padding-top: 40px;

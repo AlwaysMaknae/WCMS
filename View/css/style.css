@@ -160,6 +160,36 @@ header form textarea {
   margin-bottom: 8px;
   letter-spacing: 2px;
 }
+#Contact form {
+  font-size: 20px;
+}
+#Contact form label {
+  color: #1a6e1e;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 30px;
+  font-family: 'Fjalla One', 'Open Sans', sans-serif;
+}
+#Contact form input,
+#Contact form textarea {
+  font-size: 20px;
+  margin-top: 10px;
+  padding: 5px;
+}
+#Contact form input[type=submit] {
+  cursor: pointer;
+  border-style: solid;
+  border-color: #1a6e1e;
+  border-width: 1px;
+  background-color: #fff;
+  color: #1a6e1e;
+  padding: 10px;
+  font-weight: bold;
+}
+#Contact form input[type=submit]:hover {
+  border-color: #646863;
+  color: #646863;
+}
 footer {
   background-color: #1a6e1e;
   padding-top: 40px;
