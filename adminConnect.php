@@ -4,7 +4,7 @@ include_once "Controller/AdminMaganer.class.php";
 
   $host 	= "localhost";
   $user 	= "root";
-  $pass 	= "root";
+  $pass 	= "";
   $dbname = "block2_project";
   $Manager = null;
 
