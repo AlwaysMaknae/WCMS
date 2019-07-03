@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content= "width=device-width, initial-scale=1.0">
 	<title><? echo $AppTitle ?> Admin Panel</title>
 	<!-- JQuery Library CDN -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -13,6 +14,7 @@
 	<style>
 
 	#app button{
+		cursor: pointer;
 		vertical-align: top;
 	}
 	#app input{
@@ -36,7 +38,7 @@
 </head>
 <body>
 	<div class="container">
-			<h1>Welcome to the Admin pannel!</h1>
+			<h1>Welcome to the Admin panel!</h1>
 		<nav class="mb-2">
 				<a href="core.php?Logout" class="btn btn-danger">Logout</a>
 				<a href="adminCore.php?Index" class="btn btn-primary"> Index </a>

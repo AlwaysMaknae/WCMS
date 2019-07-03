@@ -8,9 +8,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="view/css/style.css">
+	<link rel="stylesheet" type="text/css" href="View/css/style.css">
 
 	<script src="View/js/gallery.js"></script>
-	<link rel="stylesheet" type="text/css" href="view/css/gallery.css">
+	<link rel="stylesheet" type="text/css" href="View/css/gallery.css">
 </head>
 <body>

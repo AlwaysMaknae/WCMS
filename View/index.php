@@ -13,23 +13,40 @@
 		</ul>
 	</nav>
 
-	<a href="index.php" id="logo"><img src="uploads/<?=$logo['file'] ?>" height="200"></a>
+	<a href="index.php" id="logo"><img src="uploads/<?=$logo['file'] ?>" height="200" alt="logo"></a>
 	<p id="more-btn">Plus d'information.</p>
 	<script>
 		$(function(){
-			$("#smallForm").hide();
+			//$("#smallForm").hide();
 			$("#more-btn").click(function(){
 				$("#smallForm").fadeToggle();
 			});
-			$("#smallForm").click(function(e){
+			$("#smallForm i").click(function(e){
 				$("#smallForm").fadeOut();
 			});
 		})
 	</script>
 
-	<div id="smallForm" style="display:none">
+	<div id="smallForm"
+	<?php if(isset($_GET["Mail"])): ?>
+	style="display:block">
+<?php else: ?>
+	style="display:none">
+<?php endif; ?>
+
 		<i>X</i>
 		<?php echo $application['smallcontact']; ?>
+
+		<?php if(isset($_GET["Mail"])): ?>
+			<div id="MailOutput">
+				<?php if($_GET["Mail"] == "Success"): ?>
+					Email Sent
+				<?php else: ?>
+					Sorry there was an Error
+				<?php endif; ?>
+			</div>
+		<?php endif; ?>
+
 	</div>
 
 </header>

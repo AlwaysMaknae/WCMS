@@ -1,6 +1,6 @@
 <div class="container text-center">
 	<hr>
-	<p>Footer</p>
+	<p>Copyright, Team 2 : Frank and José</p>
 </div>
 </div>
 

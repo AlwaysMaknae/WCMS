@@ -1,0 +1,27 @@
+[03-Jul-2019 14:08:49 UTC] PHP Parse error:  syntax error, unexpected '$owner' (T_VARIABLE) in /home/h5214460/public_html/Block2/mail.php on line 10
+[03-Jul-2019 14:09:26 UTC] PHP Parse error:  syntax error, unexpected '$owner' (T_VARIABLE) in /home/h5214460/public_html/Block2/mail.php on line 13
+[03-Jul-2019 14:09:50 UTC] PHP Parse error:  syntax error, unexpected '$owner' (T_VARIABLE) in /home/h5214460/public_html/Block2/mail.php on line 13
+[03-Jul-2019 14:11:18 UTC] PHP Parse error:  syntax error, unexpected '$owner' (T_VARIABLE) in /home/h5214460/public_html/Block2/mail.php on line 14
+[03-Jul-2019 14:13:04 UTC] PHP Warning:  mail() expects parameter 4 to be string, array given in /home/h5214460/public_html/Block2/mail.php on line 43
+[03-Jul-2019 14:13:04 UTC] PHP Warning:  mail() expects parameter 4 to be string, array given in /home/h5214460/public_html/Block2/mail.php on line 70
+[03-Jul-2019 14:16:35 UTC] PHP Warning:  require_once(Model/Mail.class.php): failed to open stream: No such file or directory in /home/h5214460/public_html/Block2/Controller/DBManager.class.php on line 8
+[03-Jul-2019 14:16:35 UTC] PHP Fatal error:  require_once(): Failed opening required 'Model/Mail.class.php' (include_path='.:/opt/cpanel/ea-php71/root/usr/share/pear') in /home/h5214460/public_html/Block2/Controller/DBManager.class.php on line 8
+[03-Jul-2019 14:22:34 UTC] PHP Warning:  mail(): Multiple or malformed newlines found in additional_header in /home/h5214460/public_html/Block2/mail.php on line 44
+[03-Jul-2019 14:22:34 UTC] PHP Warning:  mail(): Multiple or malformed newlines found in additional_header in /home/h5214460/public_html/Block2/mail.php on line 71
+[03-Jul-2019 14:24:09 UTC] PHP Warning:  mail(): Multiple or malformed newlines found in additional_header in /home/h5214460/public_html/Block2/mail.php on line 44
+[03-Jul-2019 14:24:09 UTC] PHP Warning:  mail(): Multiple or malformed newlines found in additional_header in /home/h5214460/public_html/Block2/mail.php on line 71
+[03-Jul-2019 14:28:00 UTC] PHP Warning:  mail(): Multiple or malformed newlines found in additional_header in /home/h5214460/public_html/Block2/mail.php on line 44
+[03-Jul-2019 14:28:00 UTC] PHP Warning:  implode(): Invalid arguments passed in /home/h5214460/public_html/Block2/mail.php on line 77
+[03-Jul-2019 14:29:21 UTC] PHP Warning:  mail(): Multiple or malformed newlines found in additional_header in /home/h5214460/public_html/Block2/mail.php on line 44
+[03-Jul-2019 14:29:21 UTC] PHP Warning:  implode(): Invalid arguments passed in /home/h5214460/public_html/Block2/mail.php on line 77
+[03-Jul-2019 14:30:51 UTC] PHP Warning:  mail(): Multiple or malformed newlines found in additional_header in /home/h5214460/public_html/Block2/mail.php on line 44
+[03-Jul-2019 14:31:42 UTC] PHP Warning:  mail(): Multiple or malformed newlines found in additional_header in /home/h5214460/public_html/Block2/mail.php on line 44
+[03-Jul-2019 14:40:54 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/h5214460/public_html/Block2/mail.php:80) in /home/h5214460/public_html/Block2/mail.php on line 84
+[03-Jul-2019 14:42:55 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/h5214460/public_html/Block2/mail.php:81) in /home/h5214460/public_html/Block2/mail.php on line 84
+[03-Jul-2019 14:44:16 UTC] PHP Parse error:  syntax error, unexpected '$owner' (T_VARIABLE) in /home/h5214460/public_html/Block2/mail.php on line 13
+[03-Jul-2019 14:44:45 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/h5214460/public_html/Block2/mail.php:14) in /home/h5214460/public_html/Block2/mail.php on line 85
+[03-Jul-2019 14:45:25 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/h5214460/public_html/Block2/mail.php:12) in /home/h5214460/public_html/Block2/mail.php on line 83
+[03-Jul-2019 14:47:57 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/h5214460/public_html/Block2/mail.php:12) in /home/h5214460/public_html/Block2/mail.php on line 84
+[03-Jul-2019 14:49:17 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/h5214460/public_html/Block2/mail.php:12) in /home/h5214460/public_html/Block2/mail.php on line 87
+[03-Jul-2019 14:51:42 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/h5214460/public_html/Block2/mail.php:12) in /home/h5214460/public_html/Block2/mail.php on line 93
+[03-Jul-2019 15:11:47 UTC] PHP Parse error:  syntax error, unexpected 'elseif' (T_ELSEIF), expecting end of file in /home/h5214460/public_html/Block2/core.php on line 43

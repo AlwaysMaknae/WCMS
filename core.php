@@ -23,7 +23,6 @@ if(isset($_GET['Login'])){
 	$usersinfo = $info->getUsersInfo();
 	$userslogin = $info->UsersLoginInfo($_POST['username'], $_POST['password']);
 
-	var_dump($userslogin);
 	if($usersArray['username'] == $admin AND $usersArray['password'] == $adminpassword){
 		$_SESSION['admin'] = $_POST['username'];
 		header("location: adminCore.php");
@@ -40,63 +39,9 @@ if(isset($_GET['Login'])){
 	header("location: adminLogin.php");
 }elseif(isset($_GET['page'])){
 	$Index = new IndexController( $_GET['page'] );
+} elseif( isset($_GET['Mail']) ){
+	$MailStatus = $_GET['Mail'];
+	$Index = new IndexController( 1 );
 } else{
 	$Index = new IndexController( 1 );
-}
-
-// Small form
-if(isset($_POST['FormSubmit'])){
-	$to = $_POST['email'];
-	$subject = "You contacted the admin!";
-	$id = $_POST['name'];
-	$content = $_POST['comment'];
-
-	$headers = array(
-		'From' 			=> 'jose.19315@hotmail.com',
-		'Reply-To' 		=> 'jose.19315@hotmail.com',
-		'X-Mailer'		=> 'PHP/' . phpversion(),
-		'MIME-Version' 	=> '1.0',
-		'Content-type' 	=>  'text/html; charset=utf-8'
-	);
-
-	$msg = '
-	<!DOCTYPE html>
-	<html>
-	<body>
-	<h1>Hi, ' . $id . '</h1>
-	<p>You sent the following to the admin: ' . $content . '</p>
-	<p>---<br>Jose W.</p>
-	</body>
-	</html>
-
-	';
-
-	mail($to, $subject, $msg, $headers);
-
-	$to2 = "jose.19315@gmail.com";
-	$subject2 = $_POST['name'] . " has contacted you, admin admin!";
-	$id2 = "Admin";
-	$content2 = $_POST['comment'];
-
-	$headers2 = array(
-		'From' 			=> 'jose.19315@hotmail.com',
-		'Reply-To' 		=> 'jose.19315@hotmail.com',
-		'X-Mailer'		=> 'PHP/' . phpversion(),
-		'MIME-Version' 	=> '1.0',
-		'Content-type' 	=>  'text/html; charset=utf-8'
-	);
-
-	$msg2 = '
-	<!DOCTYPE html>
-	<html>
-	<body>
-	<h1>Hi, ' . $id2 . '</h1>
-	<p>' . $id . ' said: ' . $content2 . '</p>
-	<p>---<br>Jose W.</p>
-	</body>
-	</html>
-
-	';
-	mail($to2, $subject2, $msg2, $headers2);
-	header("location: View/mail.php");
 }

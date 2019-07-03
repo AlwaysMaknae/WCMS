@@ -1,5 +1,9 @@
 <?php include "View/header.php" ?>
-
+<style media="screen">
+	body{
+		width: 100%;
+	}
+</style>
 <div class="login">
 	<a href="core.php">
 		<button type="button" name="back"> Back to Website </button>
